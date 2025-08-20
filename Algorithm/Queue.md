@@ -66,8 +66,9 @@ arr = ['a', 'b', 'c']
 for idx, val in enumerate(arr):
     print(idx, val)
 # 출력: 0 a / 1 b / 2 c
-
+```
 ---
+
 
 🔑 오늘의 핵심 요약
 1. 스택 = LIFO / 큐 = FIFO / 덱 = 양방향 삽입 삭제 가능
