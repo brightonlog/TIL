@@ -10,6 +10,9 @@
 
 ### 🗂 알고리즘
 - [STACK](Algorithm/Stack.md)
+- [STACK](Algorithm/Heap.md)
+- [STACK](Algorithm/Queue.md)
+- [STACK](Algorithm/Two.md)
 
 ### 🐍 Python
 - [기초 문법](Python/Basic_Syntax.md)
