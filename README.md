@@ -12,7 +12,7 @@
 - [STACK](Algorithm/Stack.md)
 - [Heap](Algorithm/Heap.md)
 - [Queue](Algorithm/Queue.md)
-- [Two pointer Algorithm, Window Sliding](Algorithm/Two.md)
+- [Two pointer Algorithm, Window Sliding](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
 
 ### 🐍 Python
 - [기초 문법](Python/Basic_Syntax.md)
