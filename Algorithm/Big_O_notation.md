@@ -37,25 +37,27 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!)
 def get_first(arr):
     return arr[0]
 O(n) – 선형 시간
-python
-코드 복사
+```
+```python
 def linear_sum(arr):
     total = 0
     for x in arr:
         total += x
     return total
 O(n²) – 이중 반복문
-python
-코드 복사
+```
+```python
+
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
         for j in range(n-1):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+```
 O(log n) – 이진 탐색
-python
-코드 복사
+
+```python
 def binary_search(arr, target):
     left, right = 0, len(arr)-1
     while left <= right:
@@ -67,6 +69,7 @@ def binary_search(arr, target):
         else:
             right = mid - 1
     return -1
+```
 5. 핵심 요약
 Big-O는 최악의 경우 실행 시간 분석 기준
 
