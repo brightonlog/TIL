@@ -36,3 +36,40 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!)
 ```python
 def get_first(arr):
     return arr[0]
+O(n) – 선형 시간
+python
+코드 복사
+def linear_sum(arr):
+    total = 0
+    for x in arr:
+        total += x
+    return total
+O(n²) – 이중 반복문
+python
+코드 복사
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(n-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+O(log n) – 이진 탐색
+python
+코드 복사
+def binary_search(arr, target):
+    left, right = 0, len(arr)-1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+5. 핵심 요약
+Big-O는 최악의 경우 실행 시간 분석 기준
+
+시간 복잡도는 알고리즘 선택의 핵심 요소
+
+같은 문제도 알고리즘에 따라 성능 차이가 큼 (예: 버블 정렬 O(n²) vs 병합 정렬 O(n log n))
