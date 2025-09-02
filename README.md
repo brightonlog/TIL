@@ -14,7 +14,8 @@
 - [Queue](Algorithm/Queue.md)
 - [Two pointer Algorithm, Window Sliding](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
 - [Computation Thinking](Algorithm/Computational_thinking.md)
-
+- [Big-O notaion]
+    - [Big-O notation in depth](Algorithm/Big-O_notation_in_depth.md)
 ### 🐍 Python
 - [기초 문법](Python/Basic_Syntax.md)
 
