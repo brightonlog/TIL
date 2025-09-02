@@ -8,7 +8,7 @@
 
 ## 📌 목차
 
-### 🗂 알고리즘
+### [🗂 알고리즘](Algorithm)
 - [STACK](Algorithm/Stack.md)
 - [Heap](Algorithm/Heap.md)
 - [Queue](Algorithm/Queue.md)
