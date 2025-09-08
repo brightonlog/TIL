@@ -16,7 +16,7 @@
 - [Computation Thinking](Algorithm/Computational_thinking.md)
 - [Big-O notaion]
     - [Big-O notation in depth](Algorithm/Big-O_notation_in_depth.md)
-- [Subsets, Combinations](Algorithm/Subsets, Combinations.md)
+- [Subsets, Combinations] (Algorithm/Subsets,Combinations.md)
 
   
 ### 🐍 Python
