@@ -16,8 +16,8 @@
 - [Computation Thinking](Algorithm/Computational_thinking.md)
 - [Big-O notaion]
     - [Big-O notation in depth](Algorithm/Big-O_notation_in_depth.md)
-- [Subsets, Combinations] (Algorithm/Subsets&Combinations.md)
-- [bfs](Algorithm/bfs_(feat_flood_fill).md)
+- [Subsets, Combinations](Algorithm/Subsets&Combinations.md)
+- [BFS](Algorithm/bfs_(feat_flood_fill).md)
 
   
 ### 🐍 Python
