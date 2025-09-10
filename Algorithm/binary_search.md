@@ -73,6 +73,7 @@ print(f'20은 {binary_search_while(20)}번째에 위치')
 
 탐색 범위를 함수의 인자로 넘겨주면서 자기 자신을 다시 호출하는 방식이다.
 
+```
 Python
 
 # arr는 반드시 정렬되어 있어야 함!
@@ -95,6 +96,7 @@ def binary_search_recur(left, right, target):
         return binary_search_recur(mid + 1, right, target)
 
 print(f'9는 {binary_search_recur(0, len(arr)-1, 9)}번째에 위치')
+```
 
 # 기타 분할 정복 알고리즘
 ## 병합 정렬 (Merge Sort)
