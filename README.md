@@ -18,6 +18,7 @@
     - [Big-O notation in depth](Algorithm/Big-O_notation_in_depth.md)
 - [Subsets, Combinations](Algorithm/Subsets&Combinations.md)
 - [BFS](Algorithm/bfs_(feat_flood_fill).md)
+- [Binary Search](Algorithm/binary_search.md)
 
   
 ### 🐍 Python
