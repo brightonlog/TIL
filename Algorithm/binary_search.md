@@ -102,6 +102,45 @@ print(f'9는 {binary_search_recur(0, len(arr)-1, 9)}번째에 위치')
 ## 병합 정렬 (Merge Sort)
 일단 데이터를 최소 단위(길이 1)까지 쪼갠 뒤, 정렬하면서 다시 합쳐나가는 방식이다. 퀵 정렬과 달리 합치는(merge) 과정에서 실제 정렬이 이루어진다.
 
+
+### 코드 구현
+``` Python
+def merge_sort(arr): # 분할
+    # 배열의 길이가 1 이하면 이미 정렬된 상태
+    if len(arr) <= 1:
+        return arr
+    
+    # 배열을 반으로 나누기
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])  # 왼쪽 절반을 재귀적으로 정렬
+    right = merge_sort(arr[mid:]) # 오른쪽 절반을 재귀적으로 정렬
+    
+    # 정렬된 두 배열을 병합
+    return merge(left, right)
+
+def merge(left, right): # 정복 및 통합
+    result = []
+    left_one, right_one = 0, 0
+    
+    # 왼쪽과 오른쪽 배열을 비교하며 작은 값을 result에 추가
+    while left_one < len(left) and right_one < len(right):
+        if left[left_one] <= right[right_one]:
+            result.append(left[left_one])
+            left_one += 1
+        else:
+            result.append(right[right_one])
+            right_one += 1
+            
+    # 남아있는 요소들을 result에 추가
+    result.extend(left[left_one:])
+    result.extend(right[right_one:])
+    
+    return result
+
+arr = [64, 35, 25, 12, 22, 11, 90]
+sorted_arr = merge_sort(arr)
+print(sorted_arr)
+```
 장점: 어떤 경우에도 **O(N log N)**의 시간 복잡도를 보장한다.
 
 단점: 정렬 과정에서 추가적인 메모리 공간이 필요하다.
@@ -112,3 +151,5 @@ print(f'9는 {binary_search_recur(0, len(arr)-1, 9)}번째에 위치')
 장점: 평균적으로 매우 빠른 **O(N log N)**의 속도를 보이며, 추가 메모리도 거의 필요 없다.
 
 단점: 이미 정렬된 리스트처럼 최악의 경우 **O(N²)**의 시간 복잡도를 가질 수 있다. 하지만 데이터가 많고 무작위일수록 이런 경우는 거의 발생하지 않는다.
+
+
