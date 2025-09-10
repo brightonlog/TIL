@@ -148,6 +148,29 @@ print(sorted_arr)
 ## 퀵 정렬 (Quick Sort)
 **기준점(pivot)**을 하나 정하고, 그 기준보다 작은 값은 왼쪽, 큰 값은 오른쪽으로 나누는 '파티셔닝'을 반복하는 방식이다. 파티셔닝을 한 번 할 때마다 최소한 피벗 하나는 제자리를 찾게 된다.
 
+### 코드 구현
+```Python
+def quick_sort(arr):
+    # 배열의 길이가 1 이하면 이미 정렬된 상태
+    if len(arr) <= 1: 
+        return arr
+
+    # 피벗을 배열의 중간 요소로 선택
+    pivot = arr[len(arr) // 2]
+    
+    # 피벗을 기준으로 작은 값, 같은 값, 큰 값을 각각 리스트에 담음
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+
+    # left와 right 리스트에 대해 재귀적으로 퀵 정렬을 수행하고 합침
+    return quick_sort(left) + middle + quick_sort(right)
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = quick_sort(arr)
+print(*sorted_arr)
+```
+
 장점: 평균적으로 매우 빠른 **O(N log N)**의 속도를 보이며, 추가 메모리도 거의 필요 없다.
 
 단점: 이미 정렬된 리스트처럼 최악의 경우 **O(N²)**의 시간 복잡도를 가질 수 있다. 하지만 데이터가 많고 무작위일수록 이런 경우는 거의 발생하지 않는다.
