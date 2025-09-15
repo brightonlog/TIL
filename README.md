@@ -19,6 +19,7 @@
 -   [BFS (feat. Flood Fill)](Algorithm/bfs_(feat_flood_fill).md)
 -   [Binary Search](Algorithm/binary_search.md)
 -   [Backtracking and Tree](Algorithm/Backtracking&Tree.md)
+-   [Union Find](Algorithm/Union_find.md)
 
 ### 🐍 Python
 
