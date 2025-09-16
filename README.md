@@ -8,19 +8,24 @@
 
 ### 🗂️ 알고리즘 (Algorithm)
 
--   [Stack](Algorithm/Stack.md)
--   [Heap](Algorithm/Heap.md)
--   [Queue](Algorithm/Queue.md)
--   [Two Pointer & Sliding Window](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
--   [Computational Thinking](Algorithm/Computational_thinking.md)
+-   [Backtracking](Algorithm/Backtracking&Tree.md)
+-   [BFS](Algorithm/bfs_(feat_flood_fill).md)
 -   [Big-O Notation](Algorithm/Big-O_notation.md)
     -   [Big-O Notation in Depth](Algorithm/Big-O_notation_in_depth.md)
--   [Subsets & Combinations](Algorithm/Subsets&Combinations.md)
--   [BFS (feat. Flood Fill)](Algorithm/bfs_(feat_flood_fill).md)
 -   [Binary Search](Algorithm/binary_search.md)
--   [Backtracking and Tree](Algorithm/Backtracking&Tree.md)
+-   [Combinations](Algorithm/Subsets&Combinations.md)
+-   [Computational Thinking](Algorithm/Computational_thinking.md)
+-   [Dijkstra Algorithm](Algorithm/MST_Dijkstra.md)
+-   [Flood Fill](Algorithm/bfs_(feat_flood_fill).md)
+-   [Heap](Algorithm/Heap.md)
+-   [MST](Algorithm/MST_Dijkstra.md)
+-   [Queue](Algorithm/Queue.md)
+-   [Sliding Window](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
+-   [Stack](Algorithm/Stack.md)
+-   [Subsets](Algorithm/Subsets&Combinations.md)
+-   [Tree](Algorithm/Backtracking&Tree.md)
+-   [Two Pointer](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
 -   [Union Find](Algorithm/Union_find.md)
--   [MST and Dijkstra Algorithm](Algorithm/MST_Dijkstra.md)
 
 ### 🐍 Python
 
