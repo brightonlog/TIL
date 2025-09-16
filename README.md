@@ -20,6 +20,7 @@
 -   [Binary Search](Algorithm/binary_search.md)
 -   [Backtracking and Tree](Algorithm/Backtracking&Tree.md)
 -   [Union Find](Algorithm/Union_find.md)
+-   [MST and Dijkstra Algorithm](MST_Dijkstra.md)
 
 ### 🐍 Python
 
