@@ -130,3 +130,64 @@ for weight, start, end in edges:
 
 print(f'최소 비용 = {min_weight}')
 ```
+
+
+---
+## 🚗 최단 경로와 다익스트라 (Dijkstra) 알고리즘
+
+MST가 '모든 정점을 연결하는 최소 비용'에 초점을 맞춘다면, **최단 경로** 알고리즘은 '**한 시작점에서 다른 특정 정점까지 가는 가장 짧은 길**'을 찾는 데 목적이 있다.
+
+-   **다익스트라 알고리즘**: 시작점에서부터 다른 모든 정점까지의 최단 경로를 구하는 대표적인 알고리즘. **누적 거리가 가장 짧은 노드**를 우선적으로 방문한다.
+
+-   **프림 vs. 다익스트라**:
+    -   **프림**: 단순히 다음 간선의 가중치가 가장 작은 것을 선택한다.
+    -   **다익스트라**: **(시작점부터 현재까지의 누적 거리 + 다음 간선 가중치)**가 가장 작은 것을 선택한다.
+
+```python
+from heapq import heappop, heappush
+
+def dijkstra(start_node):
+    pq = [(0, start_node)]       # (누적 거리, 현재 노드)
+    dists = [INF] * (V + 1)      # 각 정점까지의 최단거리를 저장할 배열
+    dists[start_node] = 0        # 시작 노드의 최단거리는 0
+
+    while pq:
+        dist, node = heappop(pq)
+
+        # 이미 더 짧은 경로가 기록되어 있다면 무시
+        if dists[node] < dist:
+            continue
+
+        for next_weight, next_node in graph[node]:
+            # 다음 노드로 가기 위한 새로운 누적 거리 계산
+            new_dist = dist + next_weight
+
+            # 새로운 경로가 기존 경로보다 더 짧을 경우에만 갱신
+            if new_dist < dists[next_node]:
+                dists[next_node] = new_dist
+                heappush(pq, (new_dist, next_node))
+    return dists
+
+INF = float('inf') # 문제 조건에 맞는 충분히 큰 수로 설정 (e.g., int(21e8))
+V, E = map(int, input().split())
+graph = [[] for _ in range(V + 1)] # 인접 리스트
+
+for _ in range(E):
+    start, end, weight = map(int, input().split())
+    graph[start].append((weight, end)) # 단방향 그래프
+
+# 0번 노드로부터 모든 다른 노드까지의 최단 거리
+result_dists = dijkstra(0)
+print(result_dists)
+```
+---
+
+## ✅ 오늘의 핵심 요약
+
+1.  **MST (최소 비용 신장 트리)**는 **모든 정점**을 **최소 비용**으로 연결하는 트리이며, **프림(정점 기준)**과 **크루스칼(간선 기준)** 알고리즘으로 해결합니다.
+
+2.  **프림**은 **BFS에 우선순위 큐**를 적용한 방식이고, **크루스칼**은 **간선 정렬 후 Union-Find**를 사용해 사이클을 방지하는 방식입니다.
+
+3.  **다익스트라**는 MST와 달리, 한 시작점에서 다른 모든 정점까지의 **최단 경로**를 찾는 알고리즘입니다.
+
+4.  가장 큰 차이점으로, **프림**은 다음 **간선 자체의 가중치**가 가장 작은 것을 선택하고, **다익스트라**는 **시작점부터의 누적 거리**가 가장 짧은 경로를 선택합니다.
