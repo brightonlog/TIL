@@ -5,46 +5,11 @@
 ---
 
 ## 📌 목차
-
 ### 🗂️ 알고리즘 (Algorithm)
 
-**B**
--   [Backtracking](Algorithm/Backtracking&Tree.md)
--   [BFS](Algorithm/bfs_(feat_flood_fill).md)
--   [Big-O Notation](Algorithm/Big-O_notation.md)
-    -   [Big-O Notation in Depth](Algorithm/Big-O_notation_in_depth.md)
--   [Binary Search](Algorithm/binary_search.md)
-
-**C**
--   [Combinations](Algorithm/Subsets&Combinations.md)
--   [Computational Thinking](Algorithm/Computational_thinking.md)
-
-**D**
--   [Dijkstra Algorithm](Algorithm/MST_Dijkstra.md)
-
-**F**
--   [Flood Fill](Algorithm/bfs_(feat_flood_fill).md)
-
-**H**
--   [Heap](Algorithm/Heap.md)
-
-**M**
--   [MST](Algorithm/MST_Dijkstra.md)
-
-**Q**
--   [Queue](Algorithm/Queue.md)
-
-**S**
--   [Sliding Window](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
--   [Stack](Algorithm/Stack.md)
--   [Subsets](Algorithm/Subsets&Combinations.md)
-
-**T**
--   [Tree](Algorithm/Backtracking&Tree.md)
--   [Two Pointer](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)
-
-**U**
--   [Union Find](Algorithm/Union_find.md)
+| B ~ C | D ~ Q | S ~ U |
+| :--- | :--- | :--- |
+| **B**<br>  - [Backtracking](Algorithm/Backtracking&Tree.md)<br>  - [BFS](Algorithm/bfs_(feat_flood_fill).md)<br>  - [Big-O Notation](Algorithm/Big-O_notation.md)<br>    - [Big-O Notation in Depth](Algorithm/Big-O_notation_in_depth.md)<br>  - [Binary Search](Algorithm/binary_search.md)<br><br>**C**<br>  - [Combinations](Algorithm/Subsets&Combinations.md)<br>  - [Computational Thinking](Algorithm/Computational_thinking.md) | **D**<br>  - [Dijkstra Algorithm](Algorithm/MST_Dijkstra.md)<br><br>**F**<br>  - [Flood Fill](Algorithm/bfs_(feat_flood_fill).md)<br><br>**H**<br>  - [Heap](Algorithm/Heap.md)<br><br>**M**<br>  - [MST](Algorithm/MST_Dijkstra.md)<br><br>**Q**<br>  - [Queue](Algorithm/Queue.md) | **S**<br>  - [Sliding Window](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)<br>  - [Stack](Algorithm/Stack.md)<br>  - [Subsets](Algorithm/Subsets&Combinations.md)<br><br>**T**<br>  - [Tree](Algorithm/Backtracking&Tree.md)<br>  - [Two Pointer](Algorithm/Two_pointer_Algorithm_and_Window_Sliding.md)<br><br>**U**<br>  - [Union Find](Algorithm/Union_find.md) |
 ### 🐍 Python
 
 -   [기초 문법](Python/Basic_Syntax.md)
