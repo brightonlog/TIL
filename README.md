@@ -16,6 +16,6 @@
 
 ### 🌐 Django
 
--   [Models](Django/Models.md)
+-   [Intro & Design Pattern](Django/Intro_Design_Pattern.md)
 
 ### 🕸️ WEB
