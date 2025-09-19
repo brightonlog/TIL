@@ -17,5 +17,6 @@
 ### 🌐 Django
 
 -   [Intro & Design Pattern](Django/Intro_Design_Pattern.md)
+-   [Template & Fomr](Django/Template_form.md)
 
 ### 🕸️ WEB
