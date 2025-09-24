@@ -19,5 +19,6 @@
 -   [Intro & Design Pattern](Django/Intro_Design_Pattern.md)
 -   [Template & Fomr](Django/Template_form.md)
 -   [Models](Django/Models.md)
+-   [ORM](Django/ORM.md)
 
 ### 🕸️ WEB
