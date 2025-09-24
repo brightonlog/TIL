@@ -111,7 +111,7 @@ article = Article.objects.get(pk=1)
 
 # 2. delete() 메서드를 호출하면 끝.
 article.delete()
-
+```
 ---
 
 ## 🖥️ ORM with View: 데이터 흐름
