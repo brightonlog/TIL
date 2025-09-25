@@ -88,3 +88,54 @@ def create(request):
     else:
         # 그냥 빈 페이지만 보여주면 됨
         return render(request, 'articles/create.html')
+
+```
+
+### Read (조회)
+
+-   **전체 조회**: `.all()`로 모든 게시글을 가져와 `index.html`에 넘겨줌.
+-   **단일 조회**: `urls.py`에서 넘겨받은 `pk` 값을 이용해 `.get(pk=pk)`로 특정 게시글 하나만 가져와 `detail.html`에 넘겨줌.
+
+### Delete (삭제)
+
+데이터를 삭제하는 건 서버 상태를 바꾸는 일이기 때문에 반드시 **POST 방식**으로 요청을 받아야 안전해.
+
+```python
+# articles/views.py
+
+def delete(request, pk):
+    # 삭제는 POST 요청일 때만 처리
+    if request.method == 'POST':
+        article = Article.objects.get(pk=pk)
+        article.delete()
+    # 삭제 후엔 메인 페이지로 Redirect!
+    return redirect('articles:index')
+```
+### Update (수정)
+
+수정은 생성(Create)과 비슷해. GET 요청으로는 기존 데이터를 담은 수정 페이지를 보여주고, POST 요청으로는 실제 데이터 변경을 처리해.
+
+```python
+# articles/views.py
+
+def update(request, pk):
+    # 수정할 게시글을 미리 조회
+    article = Article.objects.get(pk=pk)
+
+    # 사용자가 수정한 데이터를 제출했을 때 (POST)
+    if request.method == 'POST':
+        # 기존 article 인스턴스에 덮어쓰기
+        article.title = request.POST.get('title')
+        article.content = request.POST.get('content')
+        article.save()
+        # 수정이 완료되면, 해당 글 상세 페이지로 Redirect!
+        return redirect('articles:detail', article.pk)
+    
+    # 사용자가 수정 페이지를 처음 요청했을 때 (GET)
+    else:
+        # 기존 article 데이터를 담아서 수정 페이지만 보여줌
+        context = {
+            'article': article,
+        }
+        return render(request, 'articles/update.html', context)
+```
