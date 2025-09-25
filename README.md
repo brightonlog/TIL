@@ -20,6 +20,6 @@
 -   [Template & Fomr](Django/Template_form.md)
 -   [Models](Django/Models.md)
 -   [ORM](Django/ORM.md)
--   [ORM with View](ORM_with_view.md)
+-   [ORM with View](Django/ORM_with_view.md)
 
 ### 🕸️ WEB
