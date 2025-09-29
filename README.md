@@ -21,5 +21,6 @@
 -   [Models](Django/Models.md)
 -   [ORM](Django/ORM.md)
 -   [ORM with View](Django/ORM_with_view.md)
+-   [Django Form](Django/Django_form.md)
 
 ### 🕸️ WEB
