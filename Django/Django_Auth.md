@@ -98,23 +98,20 @@ HTML 문서와 같은 리소스들을 가져올 수 있도록 해주는 규약 (
 5. 웹 서버는 받은 쿠키 정보를 확인하고, 필요에 따라 사용자 식별, 세션 관리 등을 수행
 6. 웹 서버는 요청에 대한 응답을 보내며, 필요한 경우 새로운 쿠키를 설정하거나 기존 쿠키를 수정할 수 있음
 
-![image.png](attachment:e4cd39b3-935f-4dd4-92d6-aa2fee9af23e:image.png)
+
 
 ### 쿠키를 이용한 장바구니
 
 1. 장바구니에 상품 담기
 2. 서버는 응답과 함께 Set-Cookie 응답 헤더를 브라우저에 전송
 
-![image.png](attachment:730278dd-3665-453d-a087-4dec4ef271bc:image.png)
 
 1. Cookie 데이터 자세히 확인
     - key - value 형식의 데이터
     - 단순히 값만 저장하는 것이 아니라, 여러 속성을 제어할 수 있음
     - 하나의 웹사이트에서 많은 수의 쿠키를 동시에 사용
     - request Cookies & Response Cookies 탭을 보면 쿠키의 양방향 통신 특징을 볼 수 있음
-    - 
-    
-    ![image.png](attachment:0c3d471b-bfa4-4a9b-9f2e-8927c4e1a846:image.png)
+      
     
 2. 메인페이지 이동 - 장바구니 유지 상태 확인
 3. 개발자 도구 - Application 탭 -Cookies
@@ -165,10 +162,6 @@ HTML 문서와 같은 리소스들을 가져올 수 있도록 해주는 규약 (
 5. 클라이언트가 다시 동일한 서버에 접속하면 요청과 함께 쿠키(session id가 저장된)를 서버에 전달
 6. 쿠키는 요청 때마다 서버에 함께 전송 되므로 서버에서 session id를 확인해 로그인 되어있다는 것을 계속해서 확인하도록 함
 7. 사용자의 요청을 처리하고 응ekq
-
-![image.png](attachment:deace013-3cc1-4d6a-b7bd-a9c28393f065:image.png)
-
-![image.png](attachment:8f93f745-5d2a-4af1-a96c-604707ec7268:image.png)
 
 ### 세션 특징
 
@@ -226,15 +219,10 @@ Django에서 사용자 인증과 관련된 기능을 모아 놓은 시스템
 - email ⇒ 선택필드
 - 근데 요즘엔 email을 아이디로 하는 데가 많지 않나. 아이디를 이메일로 삼고 싶을 때, user모델을 그냥 쓰면 제한적이라 못 쓴다.
 
-![image.png](attachment:f93ed085-cd9a-469a-9b2f-cb7b03b05c6f:image.png)
+
 
 ### User Model 대체의 필요성
 
-![image.png](attachment:4f64f87a-3b5d-4bbe-98b1-8d1dd0dba42e:image.png)
-
-![image.png](attachment:a523655a-a0fe-4cf9-8823-6a7c44f21334:image.png)
-
-![image.png](attachment:69650b44-7dec-4afc-8425-cc26aab8e1df:image.png)
 
 ---
 
@@ -278,7 +266,6 @@ class User(AbstractUser):
 pass
 ```
 
-![image.png](attachment:e0b07c83-ec0c-4fba-a8b0-f5d89f1f9396:image.png)
 
 1. django 프로젝트에서 사용하는 기본 User 모델 → 우리가 커스텀한 User 모델로 사용할 수 있도록 AUTH_USER_MODEL 값을 변경
     - 수정 전 기본 값은 ‘auth.User’
@@ -289,9 +276,6 @@ pass
 AUTH_USER_MODEL = 'accounts.User'
 ```
 
-![image.png](attachment:35632660-075d-423d-bec7-5c403ae23bfd:344a90c5-92b1-406c-90d0-1299c02f8f38.png)
-
-![image.png](attachment:91362c95-0b2d-47ea-9728-0261ac0f2915:image.png)
 
 1. admin site에 대체한 User 모델을 등록하자~~~
     - 기본 User 모델이 아니기 때문에 등록하지 않으면 admin 페이지에 출력되지 않기 때문
@@ -305,8 +289,6 @@ AUTH_USER_MODEL = 'accounts.User'
     admin.site.register(User, UserAdmin)
     ```
     
-
-![image.png](attachment:504344c7-6615-4cf4-8ca4-c729016e1f64:image.png)
 
 ---
 
@@ -324,14 +306,13 @@ Django 프로젝트의 User를 나타내는 데 사용하는 모델을 지정하
 
 accounts에 만든 커스텀 유저 모델이 DB에 반영됨
 
-![image.png](attachment:9b1f2ac4-7401-40f1-9616-d287ad87842f:image.png)
+
 
 ## 프로젝트를 시작하며 반드시 User 모델을 대체해야 함
 
 - 지금 당장 필요 없어도 만드세요. 나중에 닉네임 등 필드를 추가하기가 매우 쉬워집니다.
 - 
 
-![image.png](attachment:9d89d10d-6c28-48c4-8c9a-7002e79c891f:image.png)
 
 ---
 
@@ -342,8 +323,6 @@ accounts에 만든 커스텀 유저 모델이 DB에 반영됨
 - 서버에 ‘나’임을 인증하는 과정이 바로 로그인
 - ⇒ 로그인은 인증(id/password)를 완료하고, Session을 만들고 클라이언트와 연결하는
 
-![image.png](attachment:f3f7f934-fce1-41f4-abcf-c522db1de621:image.png)
-
 ## 로그인은 CRUD에서 무엇?
 
 세션을 만들어야하므로 CREATE다!
@@ -352,7 +331,6 @@ accounts에 만든 커스텀 유저 모델이 DB에 반영됨
 
 로그인은 결국 GET과 POST를 둘 다 쓰기 때문에 어제 배운 NEW-와 CREATE함수 합쳐서 쓰는 거 그거 쓰면 된다
 
-![image.png](attachment:922c1efc-9bf4-4885-a8a4-2515fa3509ac:image.png)
 
 ## 로그인 페이지 작성
 
@@ -372,7 +350,6 @@ urlpatterns = [
 - …/accounts/login/ url로 요청이 들어왔을 때 실행할 login 함수 작성
 - 로그인 인증에 사용할 데이터를 입력받는 빌트인 form (AuthenticationForm) 사용
 
-![image.png](attachment:c75aae7b-3f75-45c8-8acf-8025cadf702f:image.png)
 
 ```python
 # accounts/views.py
@@ -398,9 +375,6 @@ def login(reuqest):
 - 회원가입할 때 쓰는 form이 따로 있음
 - 따라소 Auth웅앵웅은 일반 Form이기 때문에 사용자를 생성하거나 수정하는 용도가 아닌 인증하는 역할만 수행함
 
-![image.png](attachment:0bcf5916-cd40-4003-ab19-7f89102795fc:image.png)
-
-![image.png](attachment:d35fe212-7926-454a-a939-520981eda92f:image.png)
 
 ### 3. 로그인 페이지 작성 3
 
@@ -447,7 +421,6 @@ def login(request):
 
 - 예전에 한 내용의 반복의 반복임
 
-![image.png](attachment:7dafa484-7340-4981-9a52-2fdded5d64ac:image.png)
 
 ### login(request, user)
 
@@ -468,10 +441,8 @@ def login(request):
 
 - django_session 테이블에서 확인
 
-![image.png](attachment:8e70f34a-0f96-4c25-9221-3c1541720efb:image.png)
-
 ### 2. 브라우저에서 확인
 
 - 개발자 도구 - Application - Cookies
 
-![image.png](attachment:ed0fb880-bc5f-4289-ab08-5beae2ac2fa7:image.png)
+
