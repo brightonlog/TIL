@@ -22,5 +22,6 @@
 -   [ORM](Django/ORM.md)
 -   [ORM with View](Django/ORM_with_view.md)
 -   [Django Form](Django/Django_form.md)
+-   [Django Auth](Django/Django_Auth.md)
 
 ### 🕸️ WEB
