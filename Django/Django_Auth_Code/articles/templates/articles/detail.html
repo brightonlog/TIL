@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>DETAIL</h2>
+  <h3>{{article.pk}} 번째 게시글</h3>
+
+  <hr>
+  {% comment %} article <- views.py의 context의 article key 값 {% endcomment %}
+  <p>제목 : {{article.title}} </p>
+  <p>내용 : {{article.content}} </p>
+  <p>생성시간 : {{article.created_at}} </p>
+  <p>수정시간 : {{article.updated_at}} </p>
+
+  {% comment %} articles <- app_name
+  index <- name {% endcomment %}
+  <a href="{% url "articles:index" %}">[ Home ] </a>
+
+  <hr>
+  {% comment %} GET 요청 {% endcomment %}
+  <a href="{% url "articles:update" article.pk %}"> EDIT </a>  
+
+  <hr>
+  {% comment %} POST 요청 {% endcomment %}
+  <form action="{% url "articles:delete" article.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+  </form>
+{% endblock content %}

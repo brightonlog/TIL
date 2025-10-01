@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>게시판</h1>
+  
+  {% comment %} 로그인한 상태 {% endcomment %}
+  {% if request.user.is_authenticated %}
+
+  
+  {% else %}
+
+  <a href="{% url "accounts:signup" %}"> 회원 가입 </a>
+  
+  <a href="{% url "accounts:login" %}"> 로그인 </a>
+
+  
+  {% endif %}
+<h2> 안녕하세요, {{user.username}}님 </h2>
+ <form action=" {% url "accounts:logout" %}" method="POST">
+    {% csrf_token %}
+    <input type='submit' value='로그 아웃'>
+  </form>
+
+   <form action=" {% url "accounts:delete" %}" method="POST">
+    {% csrf_token %}
+    <input type='submit' value='회원 탈퇴'>
+  </form>
+  <hr>
+    <a href="{% url 'articles:create'%}"> 게시글 생성 </a>
+  <hr>
+  
+
+  {% comment %} articles <- views.py 의 context {% endcomment %}
+  {% for article in articles %}
+    <p>글 id : {{article.pk}} </p>
+    {% comment %} articles <- app_name {% endcomment %}
+    <a href="{% url "articles:detail" article.pk %}">
+      <p>글 제목 : {{article.title}} </p>
+    </a>
+    <p>글 내용 : {{article.content}} </p>
+    <hr>
+  {% endfor %}
+
+{% endblock content %}
