@@ -5,7 +5,7 @@
 ---
 
 ## 📌 목차
-### 🗂️ 알고리즘 (Algorithm)
+### [🗂️ 알고리즘](Algorithm/)
 
 | B ~ C | D ~ Q | S ~ U |
 | :--- | :--- | :--- |
@@ -14,7 +14,7 @@
 
 -   [기초 문법](Python/Basic_Syntax.md)
 
-### 🌐 Django
+### [🌐 Django](Django/)
 
 -   [Intro & Design Pattern](Django/Intro_Design_Pattern.md)
 -   [Template & Fomr](Django/Template_form.md)
@@ -23,5 +23,5 @@
 -   [ORM with View](Django/ORM_with_view.md)
 -   [Django Form](Django/Django_form.md)
 -   [Django Auth](Django/Django_Auth.md)
-
+    - [Django Auth Practice](Django/Auh
 ### 🕸️ WEB
