@@ -1,6 +1,6 @@
-### ## 오늘의 TIL: Django Template & Form 데이터 전송
+## 오늘의 TIL: Django Template & Form 데이터 전송
 
-#### **1. Django Template System (DTL)**
+### **1. Django Template System (DTL)**
 * **핵심 목적**: 파이썬 데이터(로직)와 HTML(화면)을 분리해서, **웹페이지를 효율적으로 만들기 위한 도구**. 똑같은 뉴스 기사 틀에 내용만 바꿔서 보여주는 것처럼!
 
 * **DTL (Django Template Language) 기본 문법**
@@ -11,7 +11,7 @@
 
 ---
 
-#### **2. 템플릿 상속 (Template Inheritance)**
+### **2. 템플릿 상속 (Template Inheritance)**
 * **왜 써야 해?**: 모든 HTML 페이지에 똑같이 들어가는 부분(네비게이션 바, 푸터, CSS 링크 등)을 **반복해서 코딩하지 않기 위해!** 재사용성을 극대화할 수 있어.
 
 * **사용 방법**
@@ -22,7 +22,7 @@
 
 ---
 
-#### **3. HTML Form과 데이터 전송**
+### **3. HTML Form과 데이터 전송**
 * **`<form>` 태그란?**: 사용자가 입력한 데이터를 서버로 보내기 위해 **데이터를 담는 바구니**.
 
 * **`<form>`의 핵심 속성**
@@ -36,6 +36,6 @@
 
 ---
 
-#### **4. Variable Routing (동적 URL)**
+### **4. Variable Routing (동적 URL)**
 * **개념**: URL 주소의 일부를 변수처럼 사용해서, 비슷한 여러 페이지를 하나의 URL 패턴과 하나의 View 함수로 처리하는 기술.
 * **예시**: 게시글 1번, 2번, 3번 페이지를 각각 만들 필요 없이, `urls.py`에 **`path('articles/<int:pk>/', ...)`** 와 같이 설정하면, 어떤 숫자가 오든 `pk`라는 변수로 받아서 View 함수에 넘겨줄 수 있다.
