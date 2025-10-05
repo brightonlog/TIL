@@ -17,7 +17,7 @@
 ### [🌐 Django](Django/)
 
 -   [Intro & Design Pattern](Django/Intro_Design_Pattern.md)
--   [Template & Fomr](Django/Template_form.md)
+-   [Template & Form](Django/Template_form.md)
 -   [Models](Django/Models.md)
 -   [ORM](Django/ORM.md)
 -   [ORM with View](Django/ORM_with_view.md)
