@@ -24,6 +24,7 @@
 -   [Django Form](Django/Django_form.md)
 -   [Django Auth](Django/Django_Auth.md)
     - [Django Auth Practice](Django/Django_Auth_Code)
+-   [Static & Media files](Django/static_media_files.md)
 ### 🕸️ WEB
 
 ### [🤖 AI](AI/)
