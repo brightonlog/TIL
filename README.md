@@ -25,3 +25,5 @@
 -   [Django Auth](Django/Django_Auth.md)
     - [Django Auth Practice](Django/Django_Auth_Code)
 ### 🕸️ WEB
+
+### [🤖 AI](AI/)
