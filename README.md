@@ -27,4 +27,4 @@
 ### 🕸️ WEB
 
 ### [🤖 AI](AI/)
-- [Numpy&Pandas (feat.algebra)](AI/Numpy_Pandas_AI.md)
+- [Numpy&Pandas (feat. algebra)](AI/Numpy_Pandas_AI.md)
