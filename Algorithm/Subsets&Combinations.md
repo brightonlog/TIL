@@ -18,6 +18,13 @@
   - arr[i] 원소가 부분집합에 포함되었다는 의미
 
 ```python
+
+def print_subset(bit):
+    for i in range(4):
+        if bit[i]: # bit[i]가 0이 아니면(==1이면)
+            print(arr[i], '')
+
+arr = [7, 5, 8, 1]
 bit = [0, 0, 0, 0]
 for i in range(2):
     bit[0] = i                    # 0번 원소
