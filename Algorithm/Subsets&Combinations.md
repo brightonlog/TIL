@@ -8,40 +8,65 @@
 
 어떤 집합의 모든 부분집합을 의미하며, 공집합과 자기 자신도 포함한다. 원소 개수가 $n$개일 때, 각 원소를 "포함한다/포함하지 않는다" 두 가지 경우의 수가 있으므로 부분집합의 총개수는 $2^n$개이다.
 
+### 비트 연산과 부분 집합
+
+부분 집합의 원소를 표현할 때 이진수를 이용해 할 수 있다.
+
+- bit[i] == 0
+  - arr[i]원소가 부분집합에 포함되지 않았다는 것을 의미
+- bit[i] == 1
+  - arr[i] 원소가 부분집합에 포함되었다는 의미
+
+```python
+bit = [0, 0, 0, 0]
+for i in range(2):
+    bit[0] = i                    # 0번 원소
+    for j in range(2):
+        bit[1] = j                # 1번 원소
+        for k in range(2):
+            bit[2] = k            # 2번 원소
+            for l in range(2):
+                bit[3] = l        # 3번 원소
+                print_subset(bit) # 생성된 부분 집합 출력
+
+```
+
 ### 1. 바이너리 카운팅 (비트 연산)
 
 모든 부분집합을 구해야 할 때 가장 효율적이고 추천되는 방법이다. 각 원소의 포함 여부를 이진수의 각 자리(0 또는 1)에 대응시켜 표현한다.
 
--   **방법 1: 비트를 직접 지정하여 검사**
-    ```python
-    arr = [1, 2, 3, 4]
-    n = len(arr)
+- **방법 1: 비트를 직접 지정하여 검사**
 
-    # i는 0부터 2^n - 1까지의 숫자로, 각각의 부분집합을 의미
-    for i in range(1 << n):
-        for idx in range(n):
-            # i의 idx번째 비트가 1인지 확인
-            if i & (1 << idx):
-                print(arr[idx], end=" ")
-        print()
-    ```
+  ```python
+  arr = [1, 2, 3, 4]
+  n = len(arr)
 
--   **방법 2: 검사할 비트를 오른쪽으로 시프트하며 검사**
-    ```python
-    arr = [1, 2, 3, 4]
+  # i는 0부터 2^n - 1까지의 숫자로, 각각의 부분집합을 의미
+  for i in range(1 << n):
+      for idx in range(n):
+          # i의 idx번째 비트가 1인지 확인
+          if i & (1 << idx):
+              print(arr[idx], end=" ")
+      print()
+  ```
 
-    def get_sub(tar):
-        for i in range(len(arr)):
-            # tar의 가장 오른쪽 비트가 1인지 확인
-            if tar & 0x1:
-                print(arr[i], end=' ')
-            # 다음 비트를 검사하기 위해 오른쪽으로 1칸 시프트
-            tar >>= 1
+- **방법 2: 검사할 비트를 오른쪽으로 시프트하며 검사**
 
-    for target in range(1 << len(arr)):
-        get_sub(target)
-        print()
-    ```
+  ```python
+  arr = [1, 2, 3, 4]
+
+  def get_sub(tar):
+      for i in range(len(arr)):
+          # tar의 가장 오른쪽 비트가 1인지 확인
+          if tar & 0x1:
+              print(arr[i], end=' ')
+          # 다음 비트를 검사하기 위해 오른쪽으로 1칸 시프트
+          tar >>= 1
+
+  for target in range(1 << len(arr)):
+      get_sub(target)
+      print()
+  ```
 
 ### 2. 재귀 호출 (완전 탐색)
 
@@ -67,7 +92,6 @@ def recur(index, subset):
 
 recur(0, [])
 ```
-
 
 ---
 
@@ -98,6 +122,7 @@ recur(0, 0)
 ```
 
 ## 중복 조합
+
 ```Python
 
 # 5명 중 3명을 순서 없이 중복을 허용하여 고르기
@@ -118,8 +143,11 @@ def recur(cnt, start):
 
 recur(0, 0)
 ```
+
 #🎲 순열 & 중복순열
+
 ## 중복 순열
+
 순서 O, 중복 O. 다음 숫자를 뽑을 때 항상 처음부터 다시 탐색한다.
 
 ```Python
