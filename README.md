@@ -29,3 +29,4 @@
 
 ### [🤖 AI](AI/)
 - [Numpy&Pandas (feat. algebra)](AI/Numpy_Pandas_AI.md)
+- [Linear Regression](AI/Linear_regression.md)
