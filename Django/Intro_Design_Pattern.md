@@ -45,7 +45,7 @@ python manage.py startapp <앱이름>
 
 # 개발 서버 종료 (터미널에서)
 Ctrl + C
-'''
+```
 ---
 ### ## 오늘의 TIL: Django 첫걸음 & 핵심 개념
 
