@@ -12,6 +12,12 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(blank=True)
+    # User가 작성한 게시글 : user.article_set (역참조)
+    # User가 좋아요 누른 게시글 : user.like_articles
+    # 저 둘의 충돌을 방지하기 위해서 related_name을 씀
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="like_articles"
+    )
 
 class Comment(models.Model):
     # 게시글과 댓글 관계 (Many-to-one), 게시글 삭제되면 댓글도 삭제
