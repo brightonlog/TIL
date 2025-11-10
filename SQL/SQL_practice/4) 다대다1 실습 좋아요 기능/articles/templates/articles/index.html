@@ -56,6 +56,18 @@
         </a>
 
         <p>글 내용 : {{article.content}}</p>
+
+        <form action="{% url "articles:likes" article.pk %}" method="POST">
+        
+            {% csrf_token %}
+            {% comment %} 이미 좋아요를 눌렀었다면 {% endcomment %}
+            {% if request.user in article.like_user.all %}
+                <input type="submit" value="좋아요 취소">
+            {% comment %} 좋아요를 누르지 않았다면 {% endcomment %}
+            {% else %}
+                <input type="submit" value = "좋아요">
+            {% endif %}
+        </form>
         
         {% comment %} <p>글 생성 시간 : {{article.created_at}}</p> {% endcomment %}
         <hr>
