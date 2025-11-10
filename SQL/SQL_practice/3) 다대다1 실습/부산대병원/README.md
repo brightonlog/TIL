@@ -94,6 +94,7 @@ $ python manage.py migrate
 ---
 $ python manage.py shell_plus
 
+### 데이터 삽입 방법 1. 
 doctor1 = Doctor.objects.create(name='joojihoon')
 
 In [3]: patient1 = Patient.objects.create(name='bogeom')
@@ -107,3 +108,12 @@ In [5]: reservation1 = Reservation(doctor = doctor1, patient = patient1, symptom
 In [6]: reservation1.save()
 
 다음으로 DB까지 체크하기
+
+### 데이터 삽입 방법 2
+
+In [7]: patient2.doctors.add(doctor1, through_defaults={'symptom': 'flu'})
+
+In [8]: doctor1.patient_set.remove(patient1)
+
+- 환자가 의사 예약하는 건, 환자에 ManyToManyField가 있기 때문에 '''참조'''다
+- 따라서 의사가 환자 예약 취소하는 건, '''역참조'''다
