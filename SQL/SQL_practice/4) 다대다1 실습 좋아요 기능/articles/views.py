@@ -138,3 +138,16 @@ def update(request, pk):
     }
     # 데이터 변경이 x
     return render(request, 'articles/update.html', context)
+
+@login_required
+def likes(request, article_pk):
+    # 게시글 조회
+    article = Article.objects.get(pk = article_pk)
+    # 현재 로그인한 사용자가 좋아요를 이미 눌렀는지 확인
+    if request.user in article.like_users.all():
+        # 이미 좋아요 누른 상태면 좋아요 취소해야함 -> DB에서 제거
+        article.like_users.remove(request.user)
+    else:
+        # 좋아요 추가 -> DB에 추가
+        article.like_users.remove(request.user)
+    return redirect('articles:index')
