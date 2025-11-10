@@ -83,3 +83,10 @@ class Reservation(models.Model):
   symptom = models.TextField()
   reserved_at = models.DateTimeField(auto_now_add=True)
   ```
+
+그 다음으로는 shell 들어가서
+$ python manage.py makemigrations
+
+$ python manage.py migrate
+
+하고 DB까지 확인해주기!
