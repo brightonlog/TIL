@@ -89,4 +89,21 @@ $ python manage.py makemigrations
 
 $ python manage.py migrate
 
-하고 DB까지 확인해주기!
+하고 DB까지 확인해서 의사, 환자, reservation 테이블까지 잘 만들어졌는지 확인해주기!
+
+---
+$ python manage.py shell_plus
+
+doctor1 = Doctor.objects.create(name='joojihoon')
+
+In [3]: patient1 = Patient.objects.create(name='bogeom')
+
+In [4]: patient2 = Patient.objects.create(name='joonsoo')
+
+In [5]: reservation1 = Reservation(doctor = doctor1, patient = patient1, symptom = 'headache')
+  - doctor = doctor1: 
+    - Reservation 객체가 doctor1이라는 특정 Doctor 객체를 참조하도록 연결한다. 이 부분이 외래 키(doctor) 역할을 함.
+
+In [6]: reservation1.save()
+
+다음으로 DB까지 체크하기
