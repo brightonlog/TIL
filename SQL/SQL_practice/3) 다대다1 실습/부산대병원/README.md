@@ -24,11 +24,32 @@ $ python manage.py startapp hospitals
 
 
 
+## settings.py
+```python
+INSTALLED_APPS = [
+  # 설치한 앱
+  'hospitals',
+  # 설치한 패키지
+  'django_extensions',
+  # 기본적으로 장고가 제공하는 앱 
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+# 중략 ...
 
 
 
+LANGUAGE_CODE = 'ko-kr'
 
+TIME_ZONE = 'Asia/Seoul'
 
+USE_I18N = True
 
+USE_TZ = False
 
-
+```
