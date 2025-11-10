@@ -13,3 +13,13 @@ class Doctor(models.Model):
 class Patient(models.Model):
   doctors = models.ManyToManyField(Doctor, through='Reservation')
   name = models.TextField()
+  def __str__(self):
+    return f'{self.pk}번 환자 {self.name}'
+
+class Reservation(models.Model):
+  # 의사가 이 병원 그만두면 레코드 자체가 없어진다는 뜻
+  doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)  
+  # 환자가 사망하면 레코드 자체가 없어진다는 뜻
+  patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+  symptom = models.TextField()
+  reserved_at = models.DateTimeField(auto_now_add=True)
