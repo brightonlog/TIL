@@ -153,27 +153,3 @@ def likes(request, article_pk):
     
     return redirect('articles:index')
 
-
-from django.contrib.auth import get_user_model
-# 로그인 한 사람만 팔로잉할 수 있으므로
-@login_required
-def follow(request, user_pk):
-    User = get_user_model()
-    # 여기서 person은 나 자신이 아님
-    # 여기의 person은 user_pk가 팔로우하려는 '상대방'이다
-    person = User.objects.get(pk=user_pk)
-
-    # 자기 자신을 팔로우하는 것 방지
-    # 사용자가 현재 로그인한 사용자와 같지 않다면
-    if person != request.user:
-        # filter.exists()는 DB에 존재하는지 확인이다. 
-        # DB에 request.user.pk가 존재하면 True (팔로잉을 이미 함)
-        # 존재하지 않으면 False (팔로잉 안 함)
-        if person.followers.filter(pk=request.user.pk).exist():
-            # 이미 팔로잉 했으니까 팔로우 취소(역참조)
-            person.followers.remove(request.user) 
-        else:
-            # 팔로잉
-            person.followers.add(request.user)
-    
-    return redirect('accounts:profile', person.username)
