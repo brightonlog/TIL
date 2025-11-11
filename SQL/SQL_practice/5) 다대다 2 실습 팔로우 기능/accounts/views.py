@@ -122,3 +122,17 @@ def change_password(request, user_pk):
     return render(request, 'accounts/change_password.html', context)
 
 
+
+from django.contrib.auth import get_user_model
+
+def profile(request, username):
+    User = get_user_model()
+    # 여기서 person은 로그인한 사용자를 뜻할까?
+    # 아니다.
+    person = User.objects.get(username=username)
+    # contet 넘기는 이유는?
+    # user 정보를 페이지에 넘겨서 프로필 페이지를 만들기 위해서.
+    context = {
+        'person' : person
+    }
+    return render(request, 'accounts/profile.html', context)
