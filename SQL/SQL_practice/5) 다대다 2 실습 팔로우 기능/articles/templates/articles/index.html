@@ -15,6 +15,9 @@
     {% comment %} 사용자가 인증 되어 있을 때(로그인 되어 있을 떄) {% endcomment %}
     {% if request.user.is_authenticated %}
     
+
+    {% comment %} 현재 로그인 한 사용자일 때, 내 프로필을 볼 수 있게 함  {% endcomment %}
+        <a href="{% url "accounts:profile" user.username%}"> 내 프로필</a>
       {% comment %} GET 요청 {% endcomment %}
       <a href="{% url "accounts:update" %}">회원 정보 수정</a>
 

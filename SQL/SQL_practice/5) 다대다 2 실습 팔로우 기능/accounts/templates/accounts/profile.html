@@ -22,10 +22,11 @@
   {% comment %} person.like_articles는 역참조일까? (O) {% endcomment %}
   {% comment %} related_name을 한 버전이다. {% endcomment %}
   <h2>좋아요 한 게시글</h2>
-  {% for article in person.like_articles %}{% endfor %}
-  <div>{{article.title}}</div>
+  {% for article in person.like_articles.all %}
+    <div>{{article.title}}</div>
+  {% endfor %}
 
-  
+
 {% endblock content %}
 
 
