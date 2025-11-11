@@ -51,6 +51,11 @@
 
     {% comment %} DTL : for문 {% endcomment %}
     {% for article in  articles %}
+
+        <p>작성자 : <a href="{% url "accounts:profile" article.user.username%}">
+            {{article.user}}
+            </a></p>
+        
         {% comment %} {{객체.속성}} {% endcomment %}
         <p>글 id : {{article.pk}}</p>
 
