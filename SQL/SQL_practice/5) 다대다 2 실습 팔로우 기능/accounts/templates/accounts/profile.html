@@ -3,8 +3,30 @@
 {% block content %}
 
   <h1> {{person.username}} 님의 프로필 </h1>
-  <h2>{{person.name}}sladml 게시글</h2>
+  <h2>{{person.name}}님의 게시글</h2>
   
+  <hr>
+
+  <div>
+    <div>
+      팔로잉 : {{person.followings.all|length}}
+    / 팔로워 {{person.followers.all|length}}
+    </div>
+    {% comment %} request.user : 로그인한 사용자, person: 프로필 페이지 소유자 {% endcomment %}
+    {% comment %} 자기자신이 로그인 한 게 아니라면 {% endcomment %}
+    {% if request.user != person %}
+    <form action="{% url "accountss:follow" person.pk %}" method="POST" >
+      {% csrf_token %}
+      {% if request.user in person.followers.all %}
+        <input type="submit" value="언팔로우">
+      {% else %}
+      <input type="submit" value = "팔로우">
+      {% endif %}
+    </form>
+    {% endif %}
+  </div>
+
+
   {% comment %} 이 사람이 쓴 게시글을 보이게 할 것임 {% endcomment %}
   {% comment %} 근데 외래키가 Article에 있으니까, user(person)이 article을 가져오려면 역참조해야함 {% endcomment %}
   {% for article in person.article_set.all  %}
