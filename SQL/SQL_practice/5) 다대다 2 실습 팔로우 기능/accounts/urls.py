@@ -14,4 +14,5 @@ urlpatterns = [
     # request : 이미 로그인 되어있는 user의 데이터
     path('delete/', views.delete, name = 'delete'), # 회원탈퇴
     path('update/', views.update, name = 'update'), # 회원정보변경
+    path('profile/<username>/', views.profile, name= 'profile'), # 개인 프로필
 ]

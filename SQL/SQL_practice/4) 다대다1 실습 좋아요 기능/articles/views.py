@@ -149,5 +149,5 @@ def likes(request, article_pk):
         article.like_users.remove(request.user)
     else:
         # 좋아요 추가 -> DB에 추가
-        article.like_users.remove(request.user)
+        article.like_users.add(request.user)
     return redirect('articles:index')
