@@ -80,24 +80,69 @@ class Article(models.Model):
 
 # 6. loaddata
 $ python manage.py loaddata articles.json 해주기
-  - 이때 아까 세팅에서 설정한 USE_TZ=FALSE가 오류를 일으켜서 다시 True로 바꿔줌
-  
+- 이때 아까 세팅에서 설정한 USE_TZ=FALSE가 오류를 일으켜서 다시 True로 바꿔줌
+
+
 # 7. 앱에 serializers.py 설정하기
 ```python
 from rest_framework import serializers
 from .models import Article
 
 class ArticleListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Article
+  class Meta:
+    model = Article
 
-        # 직렬화 하고자하는 필드 지정
-        # 이때 쉼표 붙이게 되면 반드시 붙이기
-        # created_at은 안 가져옴 안 쓰기 때문에
-        # 홈페이지에서 쓸 serializer라 created_at, updated_at이 필요 없다.
-        fields = (
-            'id',
-            'title',
-            'content',
-        )
+    # 직렬화 하고자하는 필드 지정
+    # 이때 쉼표 붙이게 되면 반드시 붙이기
+    # created_at은 안 가져옴 안 쓰기 때문에
+    # 홈페이지에서 쓸 serializer라 created_at, updated_at이 필요 없다.
+    fields = (
+        'id',
+        'title',
+        'content',
+    )
+```
+
+# 8. 앱의 views.py 설정
+```python
+- 404 : NOT FOUND
+  - 찾을 수 없음
+- 4XX : 클라이언트 에러
+- 5XX : 서버 에러
+
+
+이떄 articles/urls.py 에 urlpattern의 주석을 해제해준다. 그래도 파란 불 잘 들어옴
+
+```python 
+form rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from rest_framework import status
+from .models import Article
+from .serializers import ArticleListSerializer
+
+# 404 : NOT FOUND
+# 찾을 수 없음
+# 4XX : 클라이언트 에러
+# 5XX : 서버 에러
+
+from django.shortcuts import get_object_or_404, get_list_or_404
+
+# 게시글을 조회했는데 없으면 404 에러를 발생시킨다는 뜻
+
+# object : 단일 객체 조회 
+# 따라서 detail(상세 게시글) 조회
+
+# list : 전체 객체 조회
+# 따라서 전체 게시글 조회
+
+@api_view(['GET', 'POST'])
+def article_list(request):
+  if request.method == 'GET':
+    articles = get_list_or_404(Article) # 게시글을 조회했는데 없으면 404에러를 반환하겠다는 뜻
+    # 모든 게시글 조회하고 --> 직렬화
+    # many=True : 여러 개의 객체(다중 데이터)일 때 꼭 써주어야함
+    serializer = ArticleListSerializer(articles, many=True) # 위의 articles 변수가 첫번째 인자로 들어가고, 두번째 인자로 many=True가 들어감
+    
+    return Response(serializer.data)
 ```
