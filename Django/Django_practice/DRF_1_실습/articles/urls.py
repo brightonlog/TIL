@@ -7,5 +7,5 @@ from articles import views
 # 왜? template 안 쓸거니까
 
 urlpattenrs = [
-    path('articles/', views.article_list),
+    # path('articles/', views.article_list),
 ]

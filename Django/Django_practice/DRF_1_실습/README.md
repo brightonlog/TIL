@@ -64,3 +64,16 @@ urlpattenrs = [
     path('articles/', views.article_list),
 ]
 ```
+
+# 5. app의 models.py 만들고 설계도 전하기
+```python 
+from django.db import models
+
+# Create your models here.
+class Article(models.Model):
+    title = models.CharField(max_length=10)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+```
+- 그리고 migrate까지
