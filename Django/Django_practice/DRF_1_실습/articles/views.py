@@ -60,3 +60,9 @@ def article_detail(request, article_pk):
 # 둘 다 단일게시글 조회인데 차이가 뭘까?
 # 1) 얘는 DB가서 조회
 # 2) 얘는 GET 방식일 때(?)
+
+  # 게시글 삭제
+  if request.method == 'DELETE':
+    article.delete()
+    # 상태 코드 HTTP_204: 반환할 콘텐츠가 없음
+    return Response(status = status.HTTP_204_NO_CONTENT)

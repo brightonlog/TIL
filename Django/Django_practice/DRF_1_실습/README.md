@@ -212,3 +212,15 @@ def article_detail(request, article_pk):
 # 2) 얘는 GET 방식일 때(?)
 ```
 --- 
+# 삭제 기능 구현
+## 1. 앱의 views.py의 articles_detail에 삭제 기능 넣기
+```python
+@api_view(['GET', 'DELETE', 'PATCH'])
+def article_detail(request, article_pk):
+# ...
+  # 게시글 삭제
+  if request.method == 'DELETE':
+    article.delete()
+    # 상태 코드 HTTP_204: 반환할 콘텐츠가 없음
+    return Response(status = status.HTTP_204_NO_CONTENT)
+```
