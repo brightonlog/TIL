@@ -35,3 +35,15 @@ USE_I18N = True
 
 USE_TZ = False
 ```
+
+# 3. 프로젝트의  urls.py 만들기
+```python 
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/v1/', include('articles/urls.py'))
+]
+
+```
