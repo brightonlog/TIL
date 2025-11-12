@@ -66,3 +66,19 @@ def article_detail(request, article_pk):
     article.delete()
     # 상태 코드 HTTP_204: 반환할 콘텐츠가 없음
     return Response(status = status.HTTP_204_NO_CONTENT)
+  
+  # 게시글 수정
+  if request.method == 'PATCH':
+    # request.data : 클라이언트가 입력한 title 또는 content
+    # partial=True : 부분 업데이트 허용한다
+    serializer = ArticleSerializer(
+      article, data=request.data, partial=True
+    )
+
+    if serializer.is_valid(raise_exception=True): # 유효하지 않을 경우 예외를 발생한다
+      serializer.save()
+      return Response(serializer.data)
+    
+    # 원래는
+    # return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST) 해야하는데
+    # raise_exception=True 떄문에 위처럼 소스 코드 안 작성해도 된다
