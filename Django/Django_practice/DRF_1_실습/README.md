@@ -81,7 +81,10 @@ class Article(models.Model):
 - 그리고 migrate까지
 
 # 6. loaddata
-$ python manage.py loaddata articles.json 해주기
+1) 앱 아래에다가 fixtures 폴더를 만들어준다
+2) fixtures 폴더에 데이터(자원) 파일 (JSON)을 넣어준다
+3)
+4) $ python manage.py loaddata articles.json 해주기
 - 이때 아까 세팅에서 설정한 USE_TZ=FALSE가 오류를 일으켜서 다시 True로 바꿔줌
 
 
