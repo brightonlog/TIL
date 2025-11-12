@@ -104,7 +104,6 @@ class ArticleListSerializer(serializers.ModelSerializer):
 ```
 
 # 8. 앱의 views.py 설정
-```python
 - 404 : NOT FOUND
   - 찾을 수 없음
 - 4XX : 클라이언트 에러
@@ -114,7 +113,7 @@ class ArticleListSerializer(serializers.ModelSerializer):
 이떄 articles/urls.py 에 urlpattern의 주석을 해제해준다. 그래도 파란 불 잘 들어옴
 
 ```python 
-form rest_framework.response import Response
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from rest_framework import status
