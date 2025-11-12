@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 
 from rest_framework import status
 from .models import Article
-from .serializers import ArticleListSerializer
+from .serializers import ArticleListSerializer, ArticleSerializer
 
 # 404 : NOT FOUND
 # 찾을 수 없음
@@ -29,3 +29,14 @@ def article_list(request):
     serializer = ArticleListSerializer(articles, many=True) # 위의 articles 변수가 첫번째 인자로 들어가고, 두번째 인자로 many=True가 들어감
     
     return Response(serializer.data)
+  
+  elif request.method == 'POST':
+    # request.data에는 title과 content가 들어가있음
+    serializer = ArticleSerializer(data=request.data)
+
+    # raise_exception=True : 유효하지 않을 경우 예외 발생
+    if serializer.is_valid(raise_exception=True):
+      serializer.save()
+      # 데이터 생성을 성공하면 HTTP에 HTTP_201 메세지가 뜸
+      # 데이터 생성을 실패하면 HTTP에 HTTP_400이 뜸
+      return Response(serializer.data, status=status.HTTP_201_CREATED) # 생성되었다

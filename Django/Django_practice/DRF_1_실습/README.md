@@ -145,3 +145,35 @@ def article_list(request):
     
     return Response(serializer.data)
 ```
+
+---
+# post 방식
+
+## 1. 앱의 serializers.py 작성
+```python
+class ArticleSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Article
+    fields = '__all__'
+
+```
+## 2. 앱의 views.py 작성하기
+
+```python
+@api_view(['GET', 'POST'])
+def article_list(request):
+
+# 중략 ...
+
+  elif request.method == 'POST':
+    # request.data에는 title과 content가 들어가있음
+    serializer = ArticleSerializer(data=request.data)
+
+    # raise_exception=True : 유효하지 않을 경우 예외 발생
+    if serializer.is_valid(raise_exception=True):
+      serializer.save()
+      # 데이터 생성을 성공하면 HTTP에 HTTP_201 메세지가 뜸
+      # 데이터 생성을 실패하면 HTTP에 HTTP_400이 뜸
+      return Response(serializer.data, status=status.HTTP_201_CREATED) # 생성되었다
+
+```
