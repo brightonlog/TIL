@@ -77,3 +77,7 @@ class Article(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 ```
 - 그리고 migrate까지
+
+# 6. loaddata
+$ python manage.py loaddata articles.json 해주기
+  - 이때 아까 세팅에서 설정한 USE_TZ=FALSE가 오류를 일으켜서 EKTL ㅅ겯FH QKrNJWNA
