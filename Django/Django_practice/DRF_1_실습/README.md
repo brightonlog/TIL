@@ -13,7 +13,7 @@
 ```python
 
 INSTALLED_APPS = [
-     # 우리가 설치한 앱
+    # 우리가 설치한 앱
     'articles',
     # 우리가 설치한 패키지
     'rest_framework',
@@ -43,7 +43,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('articles/urls.py'))
+    path('api/v1/', include('articles.urls')),
+# 자꾸만 'articles/urls.py'라고 쓰는데 주의할 것
 ]
 
 ```
@@ -64,6 +65,7 @@ urlpattenrs = [
     path('articles/', views.article_list),
 ]
 ```
+- 이때 뷰함수가 만들어지지 않았기 때문에 아래 5번에서 migrate할 때에는 위의 'path...' 이 코드를 주석처리해야 migrate가 가능함
 
 # 5. app의 models.py 만들고 설계도 전하기
 ```python 
