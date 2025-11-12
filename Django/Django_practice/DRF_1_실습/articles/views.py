@@ -40,3 +40,23 @@ def article_list(request):
       # 데이터 생성을 성공하면 HTTP에 HTTP_201 메세지가 뜸
       # 데이터 생성을 실패하면 HTTP에 HTTP_400이 뜸
       return Response(serializer.data, status=status.HTTP_201_CREATED) # 생성되었다
+
+
+# GET : 조회
+# DELETE : 삭제
+# PATCH : 일부 수정 (PUT보다 유연성 높음)
+# PUT : 전체 수정 (PATCH보다 안정성 높음)
+
+@api_view(['GET', 'DELETE', 'PATCH'])
+def article_detail(request, article_pk):
+  # 1) 단일 게시글 조회
+  article = get_object_or_404(Article, pk=article_pk)
+
+  # 2) 단일 게시글 조회
+  if request.method == 'GET':
+    serializer = ArticleSerializer(article)
+    return Response(serializer.data)
+
+# 둘 다 단일게시글 조회인데 차이가 뭘까?
+# 1) 얘는 DB가서 조회
+# 2) 얘는 GET 방식일 때(?)
