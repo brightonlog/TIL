@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-     # 우리가 설치한 앱
+    # 우리가 설치한 앱
     'articles',
     # 우리가 설치한 패키지
     'rest_framework',

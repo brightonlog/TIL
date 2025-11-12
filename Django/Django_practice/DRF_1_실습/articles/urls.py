@@ -6,6 +6,6 @@ from articles import views
 # 이제 더이상 할 필요 없다.
 # 왜? template 안 쓸거니까
 
-urlpattenrs = [
+urlpatterns = [
     path('articles/', views.article_list),
 ]
