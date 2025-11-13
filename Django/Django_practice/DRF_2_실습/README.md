@@ -1,6 +1,6 @@
 # [Today I'll Learn . . .](images/TIL.png)
 [DRF 흐름](images/drf_flow.png)
-
+![alt text](images/drf_flow.png)
 # GET method
 
 # 1. 앱의 Comment 모델 정의
@@ -105,9 +105,32 @@ def comment_list(request):
 ```
 
 
+# 6. 앱의 urls에 상세 댓글 조회 추가
 
+```python
 
+urlpatterns = [
+    path('articles/', views.article_list),
+    path('articles/<int:article_pk>/', views.article_detail), # articles/숫자/ => detail 페이지
+    
+    # 전체 댓글 조회
+    path('comments/', views.comment_list), 
+    # 상세 댓글 조회
+    path('comments/<int:comment_pk>/', views.comment_detail),
+]
 
+```
+
+# 7. 앱의 views.py에 댓글 상세 페이지 기능 추가
+```python
+# 댓글 상세 페이지 ---> 생성 X, 조회, 수정, 삭제
+@api_view(['GET', 'DELETE', 'PUT'])
+def comment_detail(request, comment_pk):
+    comment = get_object_or_404(Comment, pk=comment_pk)
+    if request.method == 'GET':
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
+```
 
 
 

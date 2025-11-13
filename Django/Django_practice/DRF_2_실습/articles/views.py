@@ -73,3 +73,11 @@ def comment_list(request):
     # 직렬화
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data) # .data 붙여야 json
+
+# 댓글 상세 페이지 ---> 생성 X, 조회, 수정, 삭제
+@api_view(['GET', 'DELETE', 'PUT'])
+def comment_detail(request, comment_pk):
+    comment = get_object_or_404(Comment, pk=comment_pk)
+    if request.method == 'GET':
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
