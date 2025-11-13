@@ -191,6 +191,21 @@ urlpatterns = [
 # 11. 앱의 views.py에 댓글 생성 기능 작성
 ```python
 
+# 댓글 생성
+@api_view(['POST'])
+def comment_create(request, article_pk):
+    article = get_object_or_404(Article, pk =article_pk)
+    # request.data : 사용자가 입력한 content
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(article=article)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+```
+
+
+
+
+
 
 
 
