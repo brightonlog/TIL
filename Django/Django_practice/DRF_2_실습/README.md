@@ -1,4 +1,6 @@
 # [Today I'll Learn . . .](images/TIL.png)
+[DRF 흐름](images/drf_flow.png)
+
 # GET method
 
 # 1. 앱의 Comment 모델 정의
