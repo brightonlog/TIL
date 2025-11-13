@@ -16,11 +16,18 @@ class Comment(models.Model):
 - 그 외에도 python manage.py loaddata comments.json까지 마침
 
 
-# 2. 
+# 2. 앱의 urls.py에 전체 댓글 조회 path 추가하기
+```python
+urlpatterns = [
+    path('articles/', views.article_list),
+    path('articles/<int:article_pk>/', views.article_detail), # articles/숫자/ => detail 페이지
+    
+    # 전체 댓글 조회
+    path('comments/' views.comment_list), 
+]
+```
 
-
-
-
+#
 
 
 

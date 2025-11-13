@@ -6,5 +6,8 @@ from articles import views
 
 urlpatterns = [
     path('articles/', views.article_list),
-    path('articles/<int:article_pk>/', views.article_detail),
+    path('articles/<int:article_pk>/', views.article_detail), # articles/숫자/ => detail 페이지
+    
+    # 전체 댓글 조회
+    path('comments/' views.comment_list), 
 ]
