@@ -12,7 +12,11 @@ class Comment(models.Model):
 ```
 
 
+- migration까지 마치기
+- 그 외에도 python manage.py loaddata comments.json까지 마침
 
+
+# 2. 
 
 
 
