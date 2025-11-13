@@ -5,6 +5,8 @@ from rest_framework import status
 from .models import Article, Comment
 from .serializers import ArticleListSerializer, ArticleSerializer, CommentSerializer
 
+
+from django.db.models import Count
 # 404 : Not found
 # 4xx : 클라이언트 에러
 # 5xx : 서버 에러
@@ -39,7 +41,14 @@ def article_list(request):
 def article_detail(request, article_pk):
     # 단일 게시글을 DB에서 조회
     article = get_object_or_404(Article, pk=article_pk)
-    # 단일 게시글 조회
+    # 단일 게시글 DB에서 조회
+    # annotate() : "계산된 필드"를 추가하는 함수
+    # Count('field') : 필드의 개수를 세어주는
+    article = get_object_or_404(
+        Article.objects.annotate(num_of_comments=Count('comments')),
+        pk = article_pk
+    )
+
     if request.method == 'GET':
         serializer = ArticleSerializer(article)
         return Response(serializer.data)

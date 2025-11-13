@@ -202,12 +202,109 @@ def comment_create(request, article_pk):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 ```
 
+---
+# 12. 댓글 개수 함께 출력
+### serializers.py
+```python 
+class ArticleSerializer(serializers.ModelSerializer):
+
+
+    class CommentDetailSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Comment
+            fields = (
+                'id',
+                'content',
+            )
+    # read_only = True : 읽기 전용
+    # 1. 유효성 검사 제외
+    # 2. 사용자로부터 입력 받지 않고 읽히기만 함
+    comment_set = CommentDetailSerializer(many=True, read_only=True)
+    num_of_comments = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+    def get_num_of_comments(self, obj):
+        # 이때 num_of_comments는 obj에 있다
+        # obj는 뷰함수에서 왔다.
+        return obj.num_of_comments
+
+```
+
+
+### views.py
+```python
+# ...
+
+from django.db.models import Count
+
+# ...
+
+
+# GET : 조회, DELETE : 삭제, PATCH : 일부 수정, PUT : 전체 수정
+@api_view(['GET', 'DELETE', 'PATCH'])
+def article_detail(request, article_pk):
+    # 단일 게시글을 DB에서 조회
+    article = get_object_or_404(Article, pk=article_pk)
+    # 단일 게시글 DB에서 조회
+    # annotate() : "계산된 필드"를 추가하는 함수
+    # Count('field') : 필드의 개수를 세어주는
+    article = get_object_or_404(
+        Article.objects.annotate(num_of_comments=Count('comments')),
+        pk = article_pk
+    )
+
+    if request.method == 'GET':
+        serializer = ArticleSerializer(article)
+        return Response(serializer.data)
+    
+    # 게시글 삭제
+    if request.method == 'DELETE':
+        article.delete()
+        # 상태 코드 HTTP_204 : 성공하고, 반환할 콘텐츠가 없음 
+        return Response(status = status.HTTP_204_NO_CONTENT)
+    
+    # 게시글 수정
+    if request.method == "PATCH":
+        # request.data : 클라이언트가 입력한 title 또는 content
+        # partial=True : 부분 업데이트 허용
+        serializer = ArticleSerializer(
+            article, data=request.data, partial=True
+        )
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+        
+            # raise_exception=True 때문에 아래처럼 소스코드를 작성 안해도 된다.
+            # return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+```
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 
 

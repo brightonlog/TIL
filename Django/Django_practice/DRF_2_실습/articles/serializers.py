@@ -27,10 +27,16 @@ class ArticleSerializer(serializers.ModelSerializer):
     # 1. 유효성 검사 제외
     # 2. 사용자로부터 입력 받지 않고 읽히기만 함
     comment_set = CommentDetailSerializer(many=True, read_only=True)
+    num_of_comments = serializers.SerializerMethodField()
 
     class Meta:
         model = Article
         fields = '__all__'
+
+    def get_num_of_comments(self, obj):
+        # 이때 num_of_comments는 obj에 있다
+        # obj는 뷰함수에서 왔다.
+        return obj.num_of_comments
 
 
 
