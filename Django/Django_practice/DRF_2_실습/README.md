@@ -149,8 +149,29 @@ def comment_detail(request, comment_pk): # 단일 댓글 조회
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
+# 9. 앱의 views.py에 댓글 수정 기능 추가
 
+```python
+@api_view(['GET', 'DELETE', 'PUT'])
+def comment_detail(request, comment_pk): # 단일 댓글 조회
+    comment = get_object_or_404(Comment, pk=comment_pk)
+    if request.method == 'GET':
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
 
+    # 댓글 삭제
+    if request.method == 'DELETE':
+        comment.delete()
+        return Response(status=status.HTTP_200_OK)
+    
+    # 댓글 수정
+    elif request.method == 'PUT':
+        # request.data = 우리가 postman에서 입력한 데이터(content)
+        SERIALIZER = CommentSerializer(comment, data=request.data) 
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data) # 수정이 잘 되면 수정된 데이터를 응답
+```
 
 
 ## 댓글 목록 조회를 위한 CommentSerializer 정의
