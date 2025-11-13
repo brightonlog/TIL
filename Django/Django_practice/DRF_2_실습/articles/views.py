@@ -76,8 +76,13 @@ def comment_list(request):
 
 # 댓글 상세 페이지 ---> 생성 X, 조회, 수정, 삭제
 @api_view(['GET', 'DELETE', 'PUT'])
-def comment_detail(request, comment_pk):
+def comment_detail(request, comment_pk): # 단일 댓글 조회
     comment = get_object_or_404(Comment, pk=comment_pk)
     if request.method == 'GET':
         serializer = CommentSerializer(comment)
         return Response(serializer.data)
+
+    # 댓글 삭제
+    if request.method == 'DELETE':
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
