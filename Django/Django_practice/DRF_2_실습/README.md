@@ -29,7 +29,7 @@ urlpatterns = [
 ]
 ```
 
-# 3. 앱의 serializers.py 작성
+# 3. 앱의 serializers.py 작성 - class ArticleSerializer
 view 함수 작성 전에 여길 먼저 들러서 작성해야한다.
 
 
@@ -66,6 +66,39 @@ class ArticleSerializer(serializers.ModelSerializer):
   
     comment_set = CommentDetailSerializer(many=True, read_only=True)
 ```
+
+
+
+# 4. 앱의 serializers.py 작성 - class CommentSerializer
+```python
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class ArticleTitleSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Article
+            # 반드시 후행쉼표 넣어주기
+            fields = ('title', )
+
+    
+    article = ArticleTitleSerializer(read_only = True)
+    
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,4 +192,4 @@ class CommentSerializer(serializers.ModelSerializer):
 - 1. 유효성 검사에서 제외시키고,
 - 2. 데이터 조회 시에는 출력하는 필드를 넣어줘야함
 - => 읽기 전용 필드
-- 이렇게 하면 is_valid 하는 대상에서 빠ㅠ 짐
+- 이렇게 하면 is_valid 하는 대상에서 빠짐

@@ -31,3 +31,18 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class ArticleTitleSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Article
+            # 반드시 후행쉼표 넣어주기
+            fields = ('title', )
+
+    
+    article = ArticleTitleSerializer(read_only = True)
+    
+    class Meta:
+        model = Comment
+        fields = '__all__'
