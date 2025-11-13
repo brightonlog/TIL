@@ -92,7 +92,17 @@ class CommentSerializer(serializers.ModelSerializer):
 - url을 댓글(Comment)로 접근하면 article은 수정하거나 생성할 수 없다는 뜻(=읽기 전용). 따라서 읽기 전용이라는 뜻
 
 
+# 5. 앱의 views.py 작성 - comment_list 추가
+```python
+@api_view(['GET'])
+def comment_list(request):
+    # 댓글이 하나도 없으면(=DB가 비어있으면) -> 404 에러
+    comments = get_list_or_404(Comment)
 
+    # 직렬화
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data) # .data 붙여야 json
+```
 
 
 

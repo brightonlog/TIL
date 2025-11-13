@@ -2,8 +2,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from rest_framework import status
-from .models import Article
-from .serializers import ArticleListSerializer, ArticleSerializer
+from .models import Article, Comment
+from .serializers import ArticleListSerializer, ArticleSerializer, CommentSerializer
 
 # 404 : Not found
 # 4xx : 클라이언트 에러
@@ -63,3 +63,13 @@ def article_detail(request, article_pk):
         
             # raise_exception=True 때문에 아래처럼 소스코드를 작성 안해도 된다.
             # return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def comment_list(request):
+    # 댓글이 하나도 없으면(=DB가 비어있으면) -> 404 에러
+    comments = get_list_or_404(Comment)
+
+    # 직렬화
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data) # .data 붙여야 json
