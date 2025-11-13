@@ -172,6 +172,28 @@ def comment_detail(request, comment_pk): # 단일 댓글 조회
             serializer.save()
             return Response(serializer.data) # 수정이 잘 되면 수정된 데이터를 응답
 ```
+---
+# 댓글 생성
+# 10. 댓글 생성을 위한 url 작성
+```python
+urlpatterns = [
+    path('articles/', views.article_list),
+    path('articles/<int:article_pk>/', views.article_detail), # articles/숫자/ => detail 페이지
+    
+    # 전체 댓글 조회
+    path('comments/', views.comment_list), 
+    # 상세 댓글 조회
+    path('comments/<int:comment_pk>/', views.comment_detail),
+    path('articles/<int:article_pk>/comments/', views.comment_create)
+]
+```
+
+# 11. 앱의 views.py에 댓글 생성 기능 작성
+```python
+
+
+
+
 
 
 ## 댓글 목록 조회를 위한 CommentSerializer 정의

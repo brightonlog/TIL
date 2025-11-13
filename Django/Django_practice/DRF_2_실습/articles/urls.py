@@ -12,4 +12,5 @@ urlpatterns = [
     path('comments/', views.comment_list), 
     # 상세 댓글 조회
     path('comments/<int:comment_pk>/', views.comment_detail),
+    path('articles/<int:article_pk>/comments/', views.comment_create)
 ]

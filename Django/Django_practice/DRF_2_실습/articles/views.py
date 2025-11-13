@@ -94,3 +94,14 @@ def comment_detail(request, comment_pk): # 단일 댓글 조회
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data) # 수정이 잘 되면 수정된 데이터를 응답
+
+
+# 댓글 생성
+@api_view(['POST'])
+def comment_create(request, article_pk):
+    article = get_object_or_404(Article, pk =article_pk)
+    # request.data : 사용자가 입력한 content
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(article=article)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
