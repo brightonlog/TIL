@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Article
+from .models import Article, Comment
 
 # 홈페이지에서 쓸 시리얼라이저라 created_at, updated_at이 필요 없다.
 class ArticleListSerializer(serializers.ModelSerializer):
@@ -14,6 +14,20 @@ class ArticleListSerializer(serializers.ModelSerializer):
         )
 
 class ArticleSerializer(serializers.ModelSerializer):
+
+
+    class CommentDetailSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Comment
+            fields = (
+                'id',
+                'content',
+            )
+    # read_only = True : 읽기 전용
+    # 1. 유효성 검사 제외
+    # 2. 사용자로부터 입력 받지 않고 읽히기만 함
+    comment_set = CommentDetailSerializer(many=True, read_only=True)
+
     class Meta:
         model = Article
         fields = '__all__'

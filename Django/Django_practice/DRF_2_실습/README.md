@@ -27,22 +27,43 @@ urlpatterns = [
 ]
 ```
 
-#
+# 3. 앱의 serializers.py 작성
+view 함수 작성 전에 여길 먼저 들러서 작성해야한다.
 
 
+```python 
+class ArticleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+# 에서 아래와 같이 작성해주기
+
+from .models import Article, Comment
+
+class ArticleSerializer(serializers.ModelSerializer):
 
 
-
-
-
-
-
-
-
-
-
-
-
+    class CommentDetailSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Comment
+            fields = (
+                'id',
+                'content',
+            )
+            
+    class Meta:
+        model = Article
+        fields = '__all__'
+  
+  
+    # read_only = True : 읽기 전용
+    # 1. 유효성 검사 제외
+    # 2. 사용자로부터 입력 받지 않고 읽히기만 함
+  
+    comment_set = CommentDetailSerializer(many=True, read_only=True)
+```
 
 
 
