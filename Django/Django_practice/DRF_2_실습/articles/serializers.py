@@ -32,6 +32,9 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = '__all__'
 
+
+
+# url을 댓글(Comment)로 접근하면 article은 수정하거나 생성할 수 없다는 뜻(=읽기 전용). 따라서 읽기 전용이라는 뜻
 class CommentSerializer(serializers.ModelSerializer):
 
     class ArticleTitleSerializer(serializers.ModelSerializer):
@@ -42,7 +45,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     
     article = ArticleTitleSerializer(read_only = True)
-    
+
     class Meta:
         model = Comment
         fields = '__all__'
