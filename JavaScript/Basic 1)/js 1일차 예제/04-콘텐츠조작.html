@@ -20,19 +20,17 @@
 
   <script>
     // 1. h1Tag 변수에 class가 'heading'인 첫 번째 요소를 할당
-
-
-
+    const h1Tag = document.querySelector('.heading')
+    
     // 2. h1Tag의 텍스트 내용을 콘솔에 출력
-
-
+    console.log(h1Tag.textContent)
 
     // 3. h1Tag의 텍스트 내용을 '내용 수정'으로 변경
-
-
+    h1Tag.textContent = '내용 수정'
 
     // 4. 변경된 h1Tag의 텍스트 내용을 다시 콘솔에 출력
-
+    console.log(h1Tag.textContent)
+    
   </script>
   
 </body>
