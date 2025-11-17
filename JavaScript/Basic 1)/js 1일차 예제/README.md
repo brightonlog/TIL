@@ -40,7 +40,7 @@ console.log(a) // 디폴트는 var임
 console.log(b) // 디폴트는 var임
 
 ```
-===
+
 
 # 선택 메서드
 ## 규칙
@@ -107,3 +107,81 @@ querySelectorAll()
 ![alt text](image.png)
 
 ---
+# 속성 조작
+![alt text](image-1.png)
+- classList 메서드
+  - add()
+  - remove()
+  - toggle()
+    - 있으면 제거하고, 없으면 추가
+  
+- getAttribute() : 속성 값을 가져옴
+- setAttribute() : 속성 값을 적용 (없으면 추가하고, 있으면 변경함)
+- removeAttribute() : 속성을 제거
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="heading">DOM 조작</h1>
+  <a href="https://www.google.com/">google</a>
+  <p class="content">content1</p>
+  <p class="content">content2</p>
+  <p class="content">content3</p>
+  <ul>
+    <li>list1</li>
+    <li>list2</li>
+  </ul>
+
+  <script>
+
+    // classList 메서드 : add(), remove(), toggle() (있으면 제거하고, 없으면 추가하고)
+
+
+    // 1. h1Tag에 'red' 클래스를 추가
+    h1Tag.classList.add('red')
+    console.log(h1Tag.classList)
+
+    
+    // 2. h1Tag에서 'red' 클래스를 제거
+    h1Tag.classList.remove('red')
+
+    // 3. 클래스가 있으면 제거하고, 없으면 추가함
+    h1Tag.classList.toggle('red')
+    h1Tag.classList.toggle('red')
+
+    console.log(h1Tag.classList) 
+
+
+    // getAttribute() : 속성 값을 가져옴
+    // setAttribute() : 속성 값을 적용 (없으면 추가하고, 있으면 변경함)
+    // removeAttribute() : 속성을 제거
+
+    const aTag = document.queryselector('a')
+    console.log(aTag.getAttribute('href'))
+
+
+    aTag.setAttribute('href', 'https://www.naver.com/')
+    // 구글이 네이버로 변경이 될 것
+
+    aTag.removeAttribute('href')
+    console.log(aTag.getAttribute('href'))
+    // NULL 값이 나올 것
+
+  </script>
+
+</body>
+
+</html>
+```

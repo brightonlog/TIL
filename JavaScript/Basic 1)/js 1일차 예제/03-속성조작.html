@@ -23,11 +23,39 @@
   </ul>
 
   <script>
-    // 1. h1Tag에 'red' 클래스를 추가
 
+    // classList 메서드 : add(), remove(), toggle() (있으면 제거하고, 없으면 추가하고)
+
+
+    // 1. h1Tag에 'red' 클래스를 추가
+    h1Tag.classList.add('red')
+    console.log(h1Tag.classList)
+
+    
     // 2. h1Tag에서 'red' 클래스를 제거
+    h1Tag.classList.remove('red')
 
     // 3. 클래스가 있으면 제거하고, 없으면 추가함
+    h1Tag.classList.toggle('red')
+    h1Tag.classList.toggle('red')
+
+    console.log(h1Tag.classList) 
+
+
+    // getAttribute() : 속성 값을 가져옴
+    // setAttribute() : 속성 값을 적용 (없으면 추가하고, 있으면 변경함)
+    // removeAttribute() : 속성을 제거
+
+    const aTag = document.queryselector('a')
+    console.log(aTag.getAttribute('href'))
+
+
+    aTag.setAttribute('href', 'https://www.naver.com/')
+    // 구글이 네이버로 변경이 될 것
+
+    aTag.removeAttribute('href')
+    console.log(aTag.getAttribute('href'))
+    // NULL 값이 나올 것
 
   </script>
 
