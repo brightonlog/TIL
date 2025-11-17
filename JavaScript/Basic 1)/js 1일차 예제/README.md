@@ -40,3 +40,70 @@ console.log(a) // 디폴트는 var임
 console.log(b) // 디폴트는 var임
 
 ```
+===
+
+# 선택 메서드
+## 규칙
+객체.메서드()
+- 자바스크립트의 인덱싱은 키로 접근한다
+- 
+
+## 단일 선택 메서드
+querySelector()
+
+## 다중 선택 메서드
+querySelectorAll()
+
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="heading">DOM 선택</h1>
+  <a href="https://www.google.com/">google</a>
+  <p class="content">content1</p>
+  <p class="content">content2</p>
+  <p class="content">content3</p>
+  <ul>
+    <li>list1</li>
+    <li>list2</li>
+  </ul>
+  <script>
+    // 단일 선택 메서드 : querySelector()
+    // 다중 선택 메서드 : querySelectorAll()
+    
+    // 규칙 : 객체.메서드()`
+
+    // 1. class가 'heading'인 요소를 선택하고 콘솔에 출력
+    console.log(document.querySelector('.heading')) //class는 ., 아이디는 #
+    
+    // 2. class가 'content'인 요소를 선택하고 콘솔에 출력
+    console.log(document.querySelector('.content'))
+
+    // 3. class가 'content'인 모든 요소를 선택하고 콘솔에 출력
+    // 3개의 <p> 요소가 NodeList 형태로 반환됨
+    console.log(document.querySelectorAll('.content'))
+
+    const items = document.querySelectorAll('.content')
+
+    // 인덱싱 (key로 접근)
+    console.log(items[1])
+
+    // 4. <ul> 자식 태그인 모든 <li> 요소를 선택하고 콘솔에 출력
+    console.log(document.querySelectorAll('ul > li'))
+
+    // 이때 오른쪽 꺽쇠(>)는 자식태그라는 뜻
+    
+  </script>
+
+</body>
+</html>
+```
+
+![alt text](image.png)
+
+---

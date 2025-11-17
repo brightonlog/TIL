@@ -16,17 +16,31 @@
     <li>list2</li>
   </ul>
   <script>
-    // 1. class가 'heading'인 요소를 선택하고 콘솔에 출력
+    // 단일 선택 메서드 : querySelector()
+    // 다중 선택 메서드 : querySelectorAll()
     
+    // 규칙 : 객체.메서드()`
+
+    // 1. class가 'heading'인 요소를 선택하고 콘솔에 출력
+    console.log(document.querySelector('.heading')) //class는 ., 아이디는 #
     
     // 2. class가 'content'인 요소를 선택하고 콘솔에 출력
-
+    console.log(document.querySelector('.content'))
 
     // 3. class가 'content'인 모든 요소를 선택하고 콘솔에 출력
+    // 3개의 <p> 요소가 NodeList 형태로 반환됨
+    console.log(document.querySelectorAll('.content'))
 
+    const items = document.querySelectorAll('.content')
+
+    // 인덱싱 (key로 접근)
+    console.log(items[1])
 
     // 4. <ul> 자식 태그인 모든 <li> 요소를 선택하고 콘솔에 출력
+    console.log(document.querySelectorAll('ul > li'))
 
+    // 이때 오른쪽 꺽쇠(>)는 자식태그라는 뜻
+    
   </script>
 
 </body>
