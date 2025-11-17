@@ -23,4 +23,20 @@ firstNumber = 20
 
 console.log(firstNumber)
 
+
+const SecondNumber = 20
+// SecondNumber = 10  const는 재할당 불가능, TypeError 뜸
+
+console.log(SecondNumber)
+
+
+a = 10
+a = 20
+
+b = 10
+b = 30
+
+console.log(a) // 디폴트는 var임
+console.log(b) // 디폴트는 var임
+
 ```
