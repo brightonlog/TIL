@@ -83,3 +83,24 @@ console.log( !1 )
     // 2) x = x + 1
     console.log(y) // 3
 ```
+---
+# 호이스팅
+한국어로는 끌어올려짐, 이라는 의미임
+```JavaScript
+console.log(name)
+var name = '박보검'
+```
+이렇게 하면 원래 값이 안 나와야하는데, '박보검'이 콘솔에 출력됨
+  - 이렇게 하면 책임소재가 분명하지 않으니, var를 쓰지 않음
+  - => 호이스팅 쓰지 않음
+
+```JavaScript
+// 호이스팅이 발생하기는 하지만, TDZ 에러가 뜸
+console.log(age)
+let age = 2
+
+console.log(height)
+const height = 183
+```
+- 호이스팅이 발생하기는 하지만, TDZ 에러가 남
+- ![alt text](image.png)
