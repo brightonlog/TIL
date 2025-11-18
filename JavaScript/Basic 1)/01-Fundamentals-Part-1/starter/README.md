@@ -65,7 +65,7 @@ console.log('String with \n\
 console.log(`String
       multiple
       lines`);
-      ```
+```
 
 ---
 # if-else
@@ -79,4 +79,3 @@ if () {
 
 ---
 # Type Conversion & Type Coercion
-
