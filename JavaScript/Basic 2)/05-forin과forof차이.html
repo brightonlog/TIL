@@ -12,6 +12,9 @@
     // for...in
     // 1. 배열, 0 1 2 출력
     const arr = ['a', 'b', 'c']
+    for ( const num in arr ){
+      console.log(num);
+    }
 
 
     // 2. 객체, korea japan china 출력
@@ -20,14 +23,21 @@
       japan: '도쿄',
       china: '베이징',
     }
+    for ( const nation in capitals ){
+      console.log(nation);
+    }
 
     // for...of
     // 3. 배열, a b c 출력
-
+    for ( const string of arr) {
+      console.log(string)
+    }
 
     
     // 4. 객체, 서울 도쿄 베이징 출력
-
+    for ( const capital of capitals) {
+      console.log(capital)
+    }
 
 
   </script>
