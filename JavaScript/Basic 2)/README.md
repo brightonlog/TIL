@@ -104,3 +104,15 @@ const height = 183
 ```
 - 호이스팅이 발생하기는 하지만, TDZ 에러가 남
 - ![alt text](image.png)
+
+---
+# 조건문
+```JavaScript
+  if (name === 'admin') {
+  console.log('관리자님 환영해요')
+} else if (name === 'customers') {
+  console.log('고객님 환영해요')
+} else {
+  console.log(`반갑습니다. ${name}님`) // f 스트링 비슷한 놈 사용 시 백틱을 써야함
+}
+```
