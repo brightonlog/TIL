@@ -82,7 +82,6 @@ console.log('String with \n\
 console.log(`String
       multiple
       lines`);
-*/
 
 const age = 19;
 
@@ -104,3 +103,15 @@ if ( birthYear <= 2000 ) {
 console.log(century); // 이러면 오류생김. 아마 로컬 변수를 밖에서 불러와서 그런 듯
 
 //그래서 century를 함수 밖에서 선언해줘야함
+*/
+
+// type conversion
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(inputYear + 18);  // 199118 나옴
+console.log(Number(inputYear) + 18); // 2009 나옴
+
+console.log(Number('Jonas')); // NaN
+console.log(typeof NaN);
+
+console.log(String(23))   // 문자열인 23이 출력됨

@@ -79,3 +79,12 @@ if () {
 
 ---
 # Type Conversion & Type Coercion
+자바스크립트에서는 세가지 유형으로만 변환이 가능함
+
+1. 숫자
+   - Number() 함수 씀
+  
+2. 문자열
+   - String() 함수 씀
+  
+3. Boolean
