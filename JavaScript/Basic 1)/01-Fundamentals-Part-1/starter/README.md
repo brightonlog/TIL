@@ -37,3 +37,6 @@ let children;
 ## 변수 선언
 const 완전 지향
 var 완전 지양
+
+---
+ 

@@ -13,7 +13,7 @@ let firstName = 'Jonas';
 
 let PI = 3.1415; // 파이같은 경우는 바뀌지 않는 상수이므로, 대문자로 쓰는 게 관례임
 
-*/
+
 
 let javascriptIsFun = true;
 console.log(javascriptIsFun); // 불리언
@@ -36,3 +36,26 @@ console.log(typeof null)                  // object 개체? 웬 개체? 오류�
 
 var job = 'programmer';
 job = 'teacher'
+
+*/
+
+const now = 2025;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+console.log(ageJonas, ageSarah);
+
+console.log(ageJonas * 2, ageJonas / 10, 2 ** 3)
+// 2 ** 3 means 2 to the power of 3 = 2 * 2 * 2
+
+const firstName = 'Jonas';
+const LastName = 'Schmedtmann';
+console.log(firstName + ' ' + LastName);
+
+// 할당 연산자 Assignment operators
+let x = 10 + 5; // 15
+x += 10; // x = x + 10 = 25
+x *= 4; // x = x * 4 = 100
+x ++; // x = x + 1
+x --;
+
+console.log(ageJonas >= ageSarah); // true
