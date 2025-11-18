@@ -39,4 +39,30 @@ const 완전 지향
 var 완전 지양
 
 ---
- 
+# 템플릿 리터럴
+ 백틱 씀
+
+```Javascript
+const jonas = "I'm" + firstName +', a' + (year - birthYear) + ' years old ' + job + '!';
+console.log(jonas)
+
+//템플릿 리터럴
+const jonasNew = `I'm ${firstName}. a ${year - birthYear} year old ${job}!`;
+console.log(jonasNew)
+```
+
+## 줄바꿈 방법
+1. \n\
+2. `` 백틱 안에 문장 넣고 그냥 줄 바꿔주기
+
+```javascript
+// 줄바꿈 방법 1)
+console.log('String with \n\
+      multiple \n\
+      lines');
+
+// 줄바꿈 방법 2)
+console.log(`String
+      multiple
+      lines`);
+      ```

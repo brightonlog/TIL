@@ -37,7 +37,7 @@ console.log(typeof null)                  // object 개체? 웬 개체? 오류�
 var job = 'programmer';
 job = 'teacher'
 
-*/
+
 
 const now = 2025;
 const ageJonas = now - 1991;
@@ -59,3 +59,28 @@ x ++; // x = x + 1
 x --;
 
 console.log(ageJonas >= ageSarah); // true
+
+
+*/
+
+const firstName = 'Jonas';
+const job = 'teacher';
+const birthYear = 2002;
+const year = 2025;
+
+const jonas = "I'm" + firstName +', a' + (year - birthYear) + ' years old ' + job + '!';
+console.log(jonas)
+
+//템플릿 리터럴
+const jonasNew = `I'm ${firstName}. a ${year - birthYear} year old ${job}!`;
+console.log(jonasNew)
+
+// 줄바꿈 방법 1)
+console.log('String with \n\
+      multiple \n\
+      lines');
+
+// 줄바꿈 방법 2)
+console.log(`String
+      multiple
+      lines`);
