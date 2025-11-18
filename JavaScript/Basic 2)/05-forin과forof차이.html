@@ -35,10 +35,30 @@
 
     
     // 4. 객체, 서울 도쿄 베이징 출력
-    for ( const capital of capitals) {
-      console.log(capital)
+    // 배열은 iterable인데
+    // 객체는 iterable이 아니다 (= 순서가 없음)
+    // 땨라서 for of 사용해서 값을 출력할 수가 없다. => for in 을 써야함
+    
+    for ( const property in capitals) {
+      console.log(capitals[property])
     }
 
+
+    // 5. 
+    const obj = {
+      2 : 'b',
+      1 : 'a',
+      c : '1',
+      b : '2',
+      c : '3',
+    }
+    
+    for (const key in obj) {
+      console.log(key)
+      // Number와 String이 다른데
+      // Number는 다른 숫자부터, => 1, 2
+      // String은 삽입 순서대로  => c, b, a
+    }
 
   </script>
 </body>
