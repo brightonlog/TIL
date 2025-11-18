@@ -61,8 +61,6 @@ x --;
 console.log(ageJonas >= ageSarah); // true
 
 
-*/
-
 const firstName = 'Jonas';
 const job = 'teacher';
 const birthYear = 2002;
@@ -84,3 +82,13 @@ console.log('String with \n\
 console.log(`String
       multiple
       lines`);
+*/
+
+const age = 19;
+
+if (age >= 18) {
+      console.log('Sarah can start driving license!');
+} else {
+const yearsLeft = 18 - age;
+console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+}
