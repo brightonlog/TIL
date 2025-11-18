@@ -69,3 +69,14 @@ console.log(`String
 
 ---
 # if-else
+
+if () {
+
+} else {
+
+}
+형식으로 적으면 됨
+
+---
+# Type Conversion & Type Coercion
+
