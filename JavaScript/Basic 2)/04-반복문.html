@@ -10,11 +10,24 @@
 <body>
   <script>
   // 1. while, 0부터 5까지 출력
+  
+  // 초기식
+  let i = 0;
 
-
+  // 조건식
+  while (i < 6) {
+    console.log(i);
+    // 증감식
+    i ++;
+  }
 
   // 2. for, 0부터 5까지 출력
+  // for (초기식; 조건식; 증감식; 순으로 들어감)
+  // 조건식이 참인 동안 반복
 
+  for (let i = 0; i < 6; i++ ) { // i++ 뒤에는 콜론 붙이지 말기. 마지막엔 원래 안 붙임. 붙이면 오류남
+    console.log(i)
+  }
 
 
   // 3. for...in, 3-1. a b 출력, 3-2. apple banana 출력
@@ -23,20 +36,37 @@
     b: 'banana'
   }
 
+  for (const property in object){
+    console.log(property)
+  }
 
-
+  // for... of 는 값을 직접 순회함
   // 4. for...of, 4-1. 0 1 2 3 출력, 4-2. a p p l e 출력
   const numbers = [0, 1, 2, 3]
-
+  for (const number of numbers){
+    console.log(number)
+  }
 
   const myStr = 'apple'
 
+  for (const str in myStr){
+    console.log(str)
+  }
+
+  for (const str of myStr){
+    console.log(str)
+  }
 
 
   //5. for...in 과 for...of 의 차이, 5-1. 0, 1, 2 출력, 5-2. a, b, c 출력
   const arr = ['a', 'b', 'c']
+for ( const i in arr){
+  console.log(i)
+}
 
-
+for (const i of arr){
+  console.log(i)
+}
   </script>
 </body>
 
