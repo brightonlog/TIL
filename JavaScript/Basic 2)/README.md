@@ -65,3 +65,21 @@ console.log( !1 )
 ```
 
 
+---
+# 전위 연산자와 후위 연산자
+
+```JavaScript
+    // 전위 연산자
+    let a = 3
+    const b = ++a // b는 4
+    // 1) a = a + 1
+    // 2) b = a
+    console.log(b) // 4
+
+    // 후위 연산자
+    let x = 3
+    const y = x++ // y는 3
+    // 1) y = x
+    // 2) x = x + 1
+    console.log(y) // 3
+```
