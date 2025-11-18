@@ -10,11 +10,26 @@
 
 <body>
   <script>
+
+    // 함수 표현식
     const arrow1 = function (name) {
       return `hello, ${name}`
     }
 
-    
+    // 비동기 통신에서 콜백 함수로 화살표 함수를 사용한다.
+
+    // 또한 웹에서는 주로 화살표 함수를 쓴다  
+
+    // 1단계 : function 키우더ㅡ 삭제 -> 화살표로 작성 (가독성을 위해 한 줄로 적기)
+    const arrow2 = (name) => {return `hello, ${name}`}
+
+
+    // 2단계 : 인자가 1개일 경우 소괄호 삭제
+    const arrow3 = name => {return `hello, ${name}`}
+
+
+    // 3eksrP : return 값 ( 반환값 )이 1개일 경우 중괄호와 return 삭제
+    const arrow4 = name => `hello, ${name}`
   </script>
 </body>
 
