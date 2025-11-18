@@ -115,3 +115,18 @@ console.log(Number('Jonas')); // NaN
 console.log(typeof NaN);
 
 console.log(String(23))   // 문자열인 23이 출력됨
+
+// type coercion
+console.log('I am ' + 23 + ' years old') // 문자열 + 숫자 + 문자열 => 모두 문자열로 출력
+
+console.log('23' - '10' - 3);            // 숫자로 10 출력
+console.log('23' + '10' + 3);            // 23103 출력
+console.log('23' * '2');                   // 숫자 46 출력
+console.log('23' / '2');                   // 숫자 11.5 출력
+
+let n = '1' + 1;  // 문자열 11
+n = n - 1;        // 숫자 10
+console.log(n);   // 숫자 10
+
+console.log(2 + 3 + 4 + '5');                   // 문자 95
+console.log('10' - '4' - '3' - 2 + '5');        // 문자 15
