@@ -10,18 +10,34 @@
 <body>
   <script>
     // 1. 단축 속성
-
-
+    const name = 'bogem'
+    const age = 22
+    const user = {
+      name,
+      user
+    }
 
 
     // 2. 단축 메서드
-
-
-
+    const myObj4 = {
+      myFunc() {
+        return 'Hello'
+      }
+    }
 
     // 3. 계산된 속성
+    // c에서는 scanf, c++는 cin, python에서는 input, 자바스크립트에서는 prompt 씀
+    const product = prompt('물건의 이름을 입력하세요.');
+    const prefix = 'my';
+    const suffix = 'property';
 
+    const bag = {
+      [product] : 5, 
+      [prefix + suffix] : 'value',
 
+    }
+    
+    console.log(bag);
 
 
     // 4. 구조 분해 할당
@@ -30,13 +46,29 @@
       userId: 'alice123',
       email: 'alice123@gmail.com'
     }
+    // 구조 분해 할당이 쓰이는 두 가지 경우
+    // 4-1. 변수에 객체의 값을 할당할 때
+    const {firstName, userId, email} = userInfo
+    console.log(firstName, userId, email)
 
+    // 4-2. 함수의 매개변수로 쓰일 때
+    // 특징 1) 매개 변수 순서가 상관없다
+    // 특징 2) 인자가 없으면 undefined
+    function printInfo({age, city, name}){
+      console.log(`이름: ${name} 나이 : ${age} 도시: ${city}`)
+    };
 
+    const person = {
+      name: 'bogeom',
+      city: 'Busan',
+    };
+
+    printInfo(person)
 
     // 5. 전개 구문
+    const obj = {b:2, c:3};
+    const newObj = {a:1, ...obj}
 
-
-    
 
     // 6. 유용한 객체 메서드
     const profile = {
@@ -44,8 +76,13 @@
       age: 30
     }
 
+    // 속성 : Objects.keys
+    // 값 : Objects.values
 
+    console.log(Object.keys(profile)); // 키만 나옴
+    console.log(Object.values(profile)); // 값만 나옴
 
+    
   </script>
 </body>
 
