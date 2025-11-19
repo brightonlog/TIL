@@ -111,3 +111,50 @@ const jonasSch = {
 ## 객체와 배열의 차이
 - 객체는 값의 순서가 없음
 - 배열은 인덱스를 통해 접근하는데, 객체는 키를 통해 접근함
+
+
+## 점 표기법 & 괄호 표기법
+```js
+// 객체
+const jonasSch = {
+  fristName : 'Jonas',
+  lastName : 'Schmedtmann',
+  age : 2037 - 1991,
+  job : 'teacher',
+  friends: ['Bob', 'Sam', 'John']
+};
+
+console.log(jonasSch);
+
+console.log(jonasSch.lastName);
+console.log(jonasSch['lastName'])
+
+const nameKey=  'Name';
+console.log(jonasSch['first' + nameKey]);
+console.log(jonasSch['last' + nameKey]);
+
+
+const interestedIn = prompt('What do you know about Jonas?')
+
+console.log(jonasSch.interestedIn); // 이렇게 하면 undefined 오류 뜸
+console.log(jonasSch[interestedIn]); // 괄호 표기법 하면 잘 뜸
+
+
+if (jonasSch[interestedIn]) {
+  console.log(jonasSch[interestedIn])
+}
+```
+![alt text](image-3.png)
+
+- 점 표기법에는 바로 뒤에 속성(키)가 들어가야하지만,
+- 괄호 표기법을 사용하면 괄호 안에 값을 만들어내는 어떤 것이라도 들어가도 됨
+
+- 근데 점 표기법이 훨씬 깔끔해서 보기 좋음
+  
+
+### 점 표기법과 괄호 표기법 이용하여 객체에 새 속성 추가하기
+```js
+jonasSch.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonasSch);
+```

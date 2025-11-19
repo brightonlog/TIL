@@ -111,3 +111,30 @@ const jonasSch = {
   job : 'teacher',
   friends: ['Bob', 'Sam', 'John']
 };
+
+console.log(jonasSch);
+
+console.log(jonasSch.lastName);
+console.log(jonasSch['lastName'])
+
+const nameKey=  'Name';
+console.log(jonasSch['first' + nameKey]);
+console.log(jonasSch['last' + nameKey]);
+
+
+const interestedIn = prompt('What do you know about Jonas?')
+
+console.log(jonasSch.interestedIn); // 이렇게 하면 undefined 오류 뜸
+console.log(jonasSch[interestedIn]); // 괄호 표기법 하면 잘 뜸
+
+
+if (jonasSch[interestedIn]) {
+  console.log(jonasSch[interestedIn])
+}
+
+// 객체에 새 속성 추가하기
+
+jonasSch.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonasSch);
+
