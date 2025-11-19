@@ -117,7 +117,26 @@
     console.log(user?.address.street) // error 발생
 ```
 
+
+## json 변환
+프론트엔드에서 json을 써먹으려면 객체로 바꿔야 함
+- 파이썬에서는 json이 dictionary로 나타났지만,
+- JavaScript에서는 json이 object(객체)로 나타남
+
+### 두 가지 외워야할 포인트
+1. 객체를 json으로 변환하는 메서드 : JSON.stringify()
+2. json을 객체로 변환 : JSON.parse()
+
+
+### json vs 객체
+- json은 키가 문자열, 다 큰 따옴표로 나옴
+
 ---
+# 배열과 배열 메서드
+
+
+
+
 
 # 내장함수
 ## map(), filter(), forEach()

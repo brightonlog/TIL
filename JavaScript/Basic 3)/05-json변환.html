@@ -14,6 +14,18 @@
         iceCream: 'Cookie and cream'
     }
 
+// 두 가지 외워야할 포인트
+// 1. 객체를 json으로 변환하는 메서드 : JSON.stringify()
+// 2. json을 객체로 변환 : JSON.parse()
+
+    // 객체를 JSON으로 변환
+    const objToJson = JSON.stringify(jsObject);
+    console.log(objToJson);
+    console.log(typeof objToJson); // string(json)으로 나옴 
+
+    const jsonToObj = Json.parse(objToJson);
+    console.log(jsonToObj);
+    console.log(typeof jsonToObj); // object로 나옴
 
   </script>
 </body>
