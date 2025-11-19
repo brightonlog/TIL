@@ -138,3 +138,5 @@ jonasSch.location = 'Portugal';
 jonas['twitter'] = '@jonasschmedtman';
 console.log(jonasSch);
 
+
+console.log(`${jonasSch.firstName} has ${jonasSch.friends.length} friends, and his best friend is called ${jonasSch.friends[1]}`);
