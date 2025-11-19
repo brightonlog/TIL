@@ -158,3 +158,4 @@ jonasSch.location = 'Portugal';
 jonas['twitter'] = '@jonasschmedtman';
 console.log(jonasSch);
 ```
+
