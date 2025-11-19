@@ -179,6 +179,36 @@
 - map 함수는 새로운 배열을 반환함.
   - return 필요;
 
+
+
+---
+# 비동기 통신
+## 비동기 통신을 다루는 세가지 방식
+1. 콜백
+2. Promise
+3. async / await
+
+
+## 콜백
+```js
+    // 비동기적 측면
+    console.log('1');
+
+    setTimeout(() => {
+      console.log('2')
+    }, 5000); // 5초 뒤에 나옴
+
+
+    console.log('3');
+    
+    // 출력 결과
+    // 1
+    // 3
+    // 2
+```
+
+![alt text](image.png)
+
 # 내장함수
 ## map(), filter(), forEach()
 
