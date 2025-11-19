@@ -85,6 +85,39 @@
 그럼 속상이랑 값만 좌라락 나옴
 
 ---
+# Optional Chaining
+## Optional Chaining의 목적
+중첩 객체에 접근하여 에러 발생 없이 값을 가져오기 위함
+
+### 그런데 객체값이 없는데 접근하려고 하면?
+에러가 뜨는데, 우리가 원하는 건 undefined
+
+이때 주의해야할 점은, optional-chaining 사용 시 처음에 쓰지 않아야 함.
+
+```js
+    const user = {
+      name: 'Alice',
+      greeting: function () {
+        return 'hello'
+      }
+    }
+
+    // optional-chaining의 목적?
+    // 중첩된 객체에 접근하여 값을 가져오려고 하기 때문임
+    // 없는 객체에 접근해서 하려 하면 error뜸. 근데 우리가 원하는 건 undefined임
+
+    // console.log(user.address.street) 이거 에러 뜨는데, 에러 안 떴으면 좋곘음
+
+    // 이때 옵셔널 체이닝 사용
+    console.log(user.address?.street)
+
+    
+    // 나쁜 예시
+    // 시작 값에 optional-chaining을 쓰는 경우
+    console.log(user?.address.street) // error 발생
+```
+
+---
 
 # 내장함수
 ## map(), filter(), forEach()
