@@ -15,7 +15,7 @@
     const person = {
       name: 'Alice',
       greeting: function () {
-        return `Hello my name is ${this.name}`
+        return `Hello my name is ${this.name}` // this => person을 의미함
       },
     }
 
@@ -24,28 +24,62 @@
 
     // 1.1 단순 호출
     // window객체와 document객체의 차이
+    // window가 상위 객체임 따라서 window.document로 표기함
+    // document는 웹페이지의 HTML임
+    
 
+    // 함수 쓸 때 this 쓰면 그 this는 무조건 window를 가리킴
+    const myFunc = function() {
+      return this // 여기서 this는 windwow
+    }
 
+    console.log(myFunc())
+    console.log(myFunc().document)
 
     // 1.2 메서드 호출
+    const myObj = {
+      data : 1,
+      myFunc() {
+        return this // 여기서 this는 myObj임
+      }
+    }
+    
+    console.log(myObj.myFunc())
 
 
 
     // 2. 중첩된 함수
     // 2.1 일반 함수
+    const myObj2 = {
+      numbers : [1, 2, 3],
+      myFunc() {
+        // 여기서 this는 myObj2
+        this.numbers.forEach(function (number){
+          console.log(this) // 중첩 함수의 this가 window를 가리킴 ( 뭔가 문제가 있음 ) => 이 문제를 안 겪으려면 '화살표 함수'를 써야함. 그래서 그런 것임
+        })
+      }
+    }
 
-
-
-
-    // 메서드호출
-
-
+    // 메서드호출    
+    myobj2.myFunc() // window 나옴
 
 
     // 2.2 화살표 함수
 
+    const myObj3 ={
+      numbers : [1, 2, 3],
+      myFunc() {
+        // 여기서 this는 myObj2
+        this.numbers.forEach((number) => {
+          console.log(this) // this는 부모 함수의 this와 같다
+      })
+    }
+  }
 
+    // 메서드 호출
+    myobj3.myFunc()
 
+    // 결론 : 콜백 함수에서는 반드시 화살표 함수를 쓰자!!
 
 
   </script>
