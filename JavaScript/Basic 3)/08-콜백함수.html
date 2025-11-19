@@ -11,20 +11,31 @@
   <script>
     
     // 콜백함수란?
-
+    // 함수의 인자로 들어가는 함수를 콜백함수라고 한다.
    
     // 1
-
+    const numbers1 = [1, 2, 3]
+    numbers1.forEach(function (num) {
+      console.log(num ** 2)
+    });
 
     // 1번 방식을 화살표 함수로
+    numbers1.forEach( num => console.log(num ** 1));
 
+    // 2. 함수 표현식을 변수에 할당하고, 이 변수를 forEach 인자로 전달
+    const numberes2 = [1, 2, 3];
+    const callBackFunction1 = function (num) {
+      console.log(num ** 2)
+    }
 
-    // 2
-
+    numberse2.forEach(callBackFunction1);
 
     // 2번 방식을 화살표 함수로
     // 2번 방식은 언제 쓸까?
-
+    const callBackFunction2 = num => console.log(num ** 2); // callBackFunction2가 콜백함수
+    numbers2.forEach(callBackFunction2);
+    
+    //재사용이 필요할 때는 반드시. 2번 방식을 사용해야 함.
 
   </script>
 </body>
