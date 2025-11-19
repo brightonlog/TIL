@@ -18,22 +18,32 @@
     }
 
     // 조회 두가지 방법
+    // 1. 개체.속성
+    console.log(user.name)
 
+    // 2. 만약 속성이 (문자열, 특수문자포함, 숫자로 시작)
+    // 2. 객체['속성']
+    console.log(user['key with space'])
 
     // 추가
+    user.address = 'busan'
+    console.log(user.address)
 
 
     // 수정
+    user.name = 'bogeom'
+    console.log(user.name)
 
+    // 삭제 --> delete
+    delete user.name
+    console.log(user.name) // undefined
 
-    // 삭제
+    // in 연산자 (파이썬의 멤버십 연산자와 비슷함)
+    console.log('greeting' in user)  // 불리언 값으로 출력됨
+    console.log('country' in user)
 
-
-    // in 연산자
- 
-
-    // 메서드 호출
-
+    // 메서드 호출 (객체 안에 있는 함수를 메서드라고 함)
+    console.log(user.greeting)
 
     //this 키워드를 사용
 
