@@ -37,4 +37,10 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 }
 
 console.log(yearsUntilRetirement(1991, 'Jonas'))
-console.log(yearsUntilRetirement(195 0, 'Mike'))
+console.log(yearsUntilRetirement(1950, 'Mike'))
+
+
+// 데이터
+const friend1 = 'Sam';
+const friend2 = 'Mike';
+const friend3 = 'John';
