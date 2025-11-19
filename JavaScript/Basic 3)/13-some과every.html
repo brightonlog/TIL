@@ -12,7 +12,8 @@
     const array = [1, 2, 3, 4, 5]
 
     // some과 every를 쓰는 이유?
-
+    // forEach 에는 break 문법이 없어서
+    // break 하기 위해 some과 every 사용
 
     // some
     // - 배열의 요소 중 적어도 하나라도 콜백 함수를 통과하는지 테스트
@@ -35,12 +36,33 @@
 
     // 1. some
     // - 콜백 함수가 true를 반환하면 some 메서드는 즉시 중단하고 true를 반환
-
+    names.some(function (name) {
+      console.log(name);
+      if (name === "Bella") {
+        return true; //  하나라도 Bella가 나오면 true 걸리고 => break
+      }            
+      return false; // 하나라도 Bella 안 걸리면 false
+    })
 
     // 2. every
     // - 콜백 함수가 false를 반환하면 every 메서드는 즉시 중단하고 false를 반환
+    names.every(function (name) {
+      console.log(name)
+      if (name === 'Bella') {
+        return false  // every는 false 반환되면 break
+      }
+      return true;
+    })
 
+    // 문제 : 적어도 하나가 짝수일 경우 true아니면 false
 
+    const numbers = [1, 2, 3, 4, 5];
+
+    const isEvenNumber = numbers.some(function (element){
+      return element % 2 === 0
+    })
+
+    // true가 리턴됨
   </script>
 </body>
 

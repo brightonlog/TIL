@@ -208,6 +208,47 @@
 ```
 
 ![alt text](image.png)
+---
+# some & every
+## some과 every를 쓰는 이유
+- forEach 에는 break 문법이 없어서
+- break 하기 위해 some과 every 사용
+
+## some
+- 배열의 요소 중 적어도 하나라도 콜백 함수를 통과하는지 테스트
+- 콜백 함수가 배열 요소 적어도 하나라도 참이면 true를 반환하고 순회 중지
+- 그렇지 않으면 false를 반환
+
+
+## every
+- 배열의 모든 요소가 콜백 함수를 통과하는지 테스트
+- 콜백 함수가 모든 배열 요소에 대해 참이면 true를 반환
+- 그렇지 않으면 false를 반환하고 순회 중지
+
+## some vs every
+
+1. some
+- 콜백 함수가 true를 반환하면 some 메서드는 즉시 중단하고 true를 반환
+
+
+2. every
+- 콜백 함수가 false를 반환하면 every 메서드는 즉시 중단하고 false를 반환
+
+
+## 문제 유형
+- 모든 요소가 짝수일 경우 true 아니면 false
+=> some 쓰기
+
+```js
+
+numbers = [1, 2, 3, 4, 5];
+
+const isAllEvenNumber = numbers.every(function (element)
+return element % 2 === 0
+))
+
+```
+
 
 # 내장함수
 ## map(), filter(), forEach()
