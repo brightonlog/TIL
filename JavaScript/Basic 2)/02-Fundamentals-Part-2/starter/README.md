@@ -90,3 +90,24 @@ if (friends.includes('Bob')){
   console.log('You have a friend called Bob.')
 }
 ```
+---
+# 객체
+- 키-값 쌍으로 이뤄짐
+- 각각의 키는 속성이라고도 함
+- 자바스크립트에서 가장 기본적인 개념임
+- 객체를 작성하는 방법에는 여러가지고 있고,
+- 아래가 그 예 중 하나임
+- 
+```js
+const jonasSch = {
+  fristName : 'Jonas',
+  lastName : 'Schmedtmann',
+  age : 2037 - 1991,
+  job : 'teacher',
+  friends: ['Bob', 'Sam', 'John']
+};
+```
+
+## 객체와 배열의 차이
+- 객체는 값의 순서가 없음
+- 배열은 인덱스를 통해 접근하는데, 객체는 키를 통해 접근함

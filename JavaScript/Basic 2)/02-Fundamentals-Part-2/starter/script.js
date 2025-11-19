@@ -102,3 +102,12 @@ console.log(friends.includes('Bob'));
 if (friends.includes('Bob')){
   console.log('You have a friend called Bob.')
 }
+
+// 객체
+const jonasSch = {
+  fristName : 'Jonas',
+  lastName : 'Schmedtmann',
+  age : 2037 - 1991,
+  job : 'teacher',
+  friends: ['Bob', 'Sam', 'John']
+};
