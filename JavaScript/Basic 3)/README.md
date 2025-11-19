@@ -142,7 +142,38 @@
 ## 정리
 함수의 인자로 들어가는 함수가 콜백함수다. 그리고 주로 화살표 함수로 콜백 함수를 나타낸다.
 
+---
+# forEach
+```js
+    const names = ['Alice', 'Bella', 'Cathy']
 
+    // 파이썬에서는
+    // for name in names:
+    //   print(name)
+
+    // 1. 일반 함수 표기
+    names.forEach(function (name) {
+      console.log(name);
+    });
+
+    // 2. 화살표 함수 표기
+    names.forEach(name => console.log(name));
+
+    // forEach의 콜백함수는 3개의 매개변수를 받을 수 있다.
+    // 1. 현재 요소의 값(value)
+    // 2. 현재 요소의 속성(인덱스)
+    // 3. 배열 전체
+
+    names.forEach( function( name, index, arr) {
+      console.log(`${name} / ${index} / ${arr} `)
+    })
+
+```
+---
+# map
+## map vs forEach
+- map 함수는 새로운 배열을 반환함.
+  - return 필요;
 
 # 내장함수
 ## map(), filter(), forEach()

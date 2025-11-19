@@ -16,11 +16,21 @@
     //   print(name)
 
     // 1. 일반 함수 표기
-
+    names.forEach(function (name) {
+      console.log(name);
+    });
 
     // 2. 화살표 함수 표기
+    names.forEach(name => console.log(name));
 
+    // forEach의 콜백함수는 3개의 매개변수를 받을 수 있다.
+    // 1. 현재 요소의 값(value)
+    // 2. 현재 요소의 속성(인덱스)
+    // 3. 배열 전체
 
+    names.forEach( function( name, index, arr) {
+      console.log(`${name} / ${index} / ${arr} `)
+    })
 
   </script>
 </body>
