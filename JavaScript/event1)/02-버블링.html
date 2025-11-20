@@ -25,10 +25,31 @@
 
   <script>
     // 버블링이란?
+    // 거품이 물 속에서 수면 위로 올라가듯, 가장 안 쪽 요소부터 바깥 쪽 요소까지 전달된다.
     // 전파 순서?
+    // p -> div -> form
+    
+    // 1. querySelector
+    const formElement = document.querySelector('#form');
+    const divElement = document.querySelector('#div');
+    const pElement = document.querySelector('#p');
 
+    // 2. 콜백함수
+    const clickHandler1 = function (event) {
+      console.log('form 클릭');
+    }
+    const clickHandler2 = function (event) {
+      console.log('div 클릭');
+    }
+    const clickHandler3 = function (event) {
+      console.log('p 클릭');
+    }
 
-
+    // 3.이벤트 리스너
+    // form 태그를 클릭하면 clickHander1 콜백 함수를 실행하겠다.
+    formElement.addEventListener('click', clickHandler1);
+    divElement.addEventListener('click', clickHandler2);
+    pElement.addEventListener('click', clickHandler3);
 
   </script>
 </body>
