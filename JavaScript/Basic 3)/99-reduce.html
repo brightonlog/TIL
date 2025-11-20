@@ -27,10 +27,13 @@
     // 예시1. 숫자 합계 구하기 
     const numbers = [1, 2, 3, 4, 5];
 
+    
+    // numbers.reduce(콜백함수, 초기값)
     const sum = numbers.reduce((accumulator, current) => {
+      // reduce가 동작할 때마다 현재까지의 누적값과 현재값 출력
       console.log(`누적값(acc): ${accumulator}, 현재값(cur): ${current}`);
       return accumulator + current;
-    }, 0);
+    }, 0); // accumulator = 0 으로 시작
 
     console.log('최종 결과:', sum);
 
@@ -39,6 +42,9 @@
     const names = ['Alice', 'Bob', 'Alice', 'Charlie', 'Bob', 'Alice'];
 
     const nameCounts = names.reduce((countMap, name) => {
+      // ?? : null 이거나 undefined면 0 사용하라는 뜻,  (0 + 1)
+      // 처음 등장하면 (0 + 1)
+      // 두번째 등장하면 (1 + 1) = 2
       countMap[name] = (countMap[name] ?? 0) + 1;
 
       return countMap;  // 수정된 객체를 다음 순회에 반환 
@@ -49,6 +55,8 @@
     // 예시3. 배열 -> 배열 (map과 filter 한 번에 reduce로 적용하기)
     // 체이닝으로 한다면? 
     //   - const result = nums.filter(n => n % 2 === 0).map(n => n * 2);
+    // 1. 짝수만 남겨라
+    // 2. 짝수들을 2배로 만들어라
 
     const nums = [1, 2, 3, 4, 5];
     const result = nums.reduce((newArray, current) => {
