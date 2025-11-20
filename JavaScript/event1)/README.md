@@ -45,3 +45,12 @@ p -> div -> form
 ```
 - 이떄 p 클릭하면 div, form이고
 - div 클릭하면 form 만 눌려짐(p X)
+---
+# target과 current target
+## current target
+이벤트 리스너에 부착된 요소
+- inner 클릭하면 outerOuter 나옴
+
+## target
+실제 클릭한 요소 (이때 요소는 tag)
+- inner 클릭하면 inner 나옴
