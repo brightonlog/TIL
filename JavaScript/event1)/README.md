@@ -54,3 +54,53 @@ p -> div -> form
 ## target
 실제 클릭한 요소 (이때 요소는 tag)
 - inner 클릭하면 inner 나옴
+---
+# 클릭이벤트
+```html
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">버튼</button>
+  <!-- span태그 왜쓸까?  -->
+   <!-- 숫자가 계속 바뀔(동적) 것이기 때문에!! p태그는 정적인데, span 태그는 동적임 -->
+  <p>클릭횟수 : <span id="counter">0</span></p>
+
+  <script>
+    // 1. 초기값 할당
+
+    let counterNumber = 0
+
+    // 1. querySelector 버튼 요소 선택
+    const btn = document.querySelector('#btn');
+
+    // 2. 버튼 요소 선택
+
+    // 3. 콜백 함수 
+    const clickHandler = function () {
+      // 3.1 초기값 += 1
+      counterNumber += 1
+
+      // 3.2 p 요소를 선택
+      const spanTag = document.querySelector('#counter');
+
+      // 3.3 p 요소의 컨텐츠를 1 증가한 초기값으로 설정
+      spanTag.textContent = counterNumber
+    }
+
+    // 3.  이벤트 리스너 | 버튼에 이벤트 핸들러 부착 
+    btn.addEventListener('click', clickHandler);
+
+  </script>
+</body>
+
+</html>
+```
