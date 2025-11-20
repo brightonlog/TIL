@@ -20,14 +20,36 @@
  <script>
    // === 예제 1: 텍스트 복사 방지 ===
  
-   const h1Tag = document.querySelector('h1')
+  // 1. querySelector
+  const h1Tag = document.querySelector('h1')
 
- 
+  //2. 콜백함수
+  const handleCopy = function (event) {
+
+    // preventDefault() : 이벤트의 동작을 막기
+    // 이때 preventDefault()만으로는 어떤 동작을 막는지 알 수 없다.
+    event.preventDefault();
+  }
+
+
+  // 3. 이벤트 리스너
+  // 이벤트 리스너를 통해 무슨 동작을 막는지 알 수 있다.
+  h1Tag.addEventListener('copy', handleCopy);
+  alert('복사할 수 없습니다.');
+
    // === 예제 2: 폼 제출 방지 ===
 
+  // 1. querySelector
    const formTag = document.querySelector('#my-form')
 
+  // 2. 콜백 함수
+  const handleSubmit = function (event) {
+    event.preventDefault();
+    alert('제출할 수 없습니다.');
+  }
 
+  // 3. 이벤트 리스너 ('submit할 때 preventDefault가 동작')
+  formTag.addEventListener('submit', handleSubmit);
 
  </script>
 </body>
