@@ -64,3 +64,8 @@ callBackTestFunc(() => {
 - 따라서 Hello가 먼저 출력되고 1(1000ms)초 뒤에 콜백함수가 실행됨
 
 | 다만, 콜백함수 만으로는 비동기식으로 만들 수 없음
+
+---
+# AJAX
+Asynchronous JavaScript And XML
+= 비동기 자바스크립트와 XML
