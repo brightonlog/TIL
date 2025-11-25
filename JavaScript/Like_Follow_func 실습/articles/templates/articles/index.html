@@ -43,6 +43,8 @@
 
     {% endif %}
 
+    <article class = "article-container">
+
 
     {% comment %} DTL : for문 {% endcomment %}
     {% for article in  articles %}
@@ -61,19 +63,60 @@
 
         <p>글 내용 : {{article.content}}</p>
         
-        <form action="{% url "articles:likes" article.pk%}" method="POST">
+        {% comment %} 자바 스크립트에서 쓰기 위해 id 값 추가해야함 {% endcomment %}
+        <form action="{% url "articles:likes" article.pk%}" method="POST" data-article-id="{{article.pk}}">
             {% csrf_token %}
             {% comment %} 좋아요 이미 눌렀으면 -> 좋아요 취소 {% endcomment %}
             {% if request.user in article.like_users.all %}
-                <input type="submit" value="좋아요 취소">
-            {% else %} {% comment %} 좋아요 안눌렀으면 -> 좋아요 {% endcomment %}
-                <input type="submit" value="좋아요">
+                <input type="submit" value="좋아요 취소" id="like-{{article.pk}}">
+            {% else %} {% comment %} 좋아요 안 눌렀으면 -> 좋아요 {% endcomment %}
+                <input type="submit" value="좋아요" id="like-{{article.pk}}">
             {% endif %}
 
-        </form>{% comment %} 좋아요 안눌렀으면 -> 좋아요 {% endcomment %}
+        </form>{% comment %} 좋아요 안 눌렀으면 -> 좋아요 {% endcomment %}
 
         {% comment %} <p>글 생성 시간 : {{article.created_at}}</p> {% endcomment %}
         <hr>
-    {% endfor %}
+        {% endfor %}
+        </article>
+    {% comment %} axios를 쓰기 위해서는 cdn을 먼저 가져와야 한다 {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <script>
+        // 1. querySelector ( 가져오기 )
+        const articleContainer = document.querySelector('.article-container')
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+        console.log(articleContainer)
+    
+        // 2. callback 함수 + 3. 이벤트 리스너
+    
+        articleContainer.addEventListener('submit', function (event){
+            // submit 시 새로고침 방지
+            event.preventDefault() 
+            const articleId = event.target.dataset.articleId
+    
+            axios({
+                method: 'post',
+                url: `/articles/${articleId}/likes/`,
+                // Django 공식문서 출신
+                headers: {'X-CSRFToken': csrftoken},
+            }) .then ((response) => {
+                const isLiked = response.data.is_liked
+                const likeBtn = document.querySelector(`#like-${articleId}`)
+                if (isLiked === true){
+                  likeBtn.value = "좋아요 취소"
+                } else{
+                  likeBtn.value = "좋아요"
+                }
+                console.log(response)
+            }) .catch((error) =>{
+                console.log(error) 
+            })
+        })
+    
+    
+    
+    </script>
+    
+</article>
 {% endblock content %}
