@@ -169,3 +169,37 @@ def likes(request, article_pk):
 </article>
 {% endblock content %}
 ```
+
+---
+# follow 흐름
+## 1. CRUD의 views.py 수정
+```py
+from django.http import JsonResponse
+@login_required
+def follow(request, user_pk):
+    User = get_user_model()
+    # person : user_pk로 팔로우 하려는 상대방
+    person = User.objects.get(pk=user_pk)
+    # 자기자신을 팔로우 하는것을 방지
+    if person != request.user:
+        # 로그인한 사용자가 이미 팔로잉을 하고있는지 확인
+        # person.followers : 역참조
+        if person.followers.filter(pk=request.user.pk).exists():
+            # 팔로우 취소
+            person.followers.remove(request.user)
+            is_followed = False
+        else:
+            # 팔로잉
+            person.followers.add(request.user)
+            is_followed = True
+
+        context = {
+            'is_followed' : is_followed,
+            'followings_count' : person.followings.count(),
+            'followers_count' : person.followers.count()
+        }
+        return JsonResponse(context)   
+    
+    # 보안 상 자기 자신을 follow하면 리다이렉트 시키기
+    return redirect('accounts:profile', person.username)
+```
