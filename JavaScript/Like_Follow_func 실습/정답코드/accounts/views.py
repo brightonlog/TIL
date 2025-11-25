@@ -135,6 +135,7 @@ def profile(request, username):
 
 
 from django.http import JsonResponse
+
 @login_required
 def follow(request, user_pk):
     User = get_user_model()
@@ -154,11 +155,11 @@ def follow(request, user_pk):
             is_followed = True
 
         context = {
-            'is_followed' : is_followed,
-            'followings_count' : person.followings.count(),
-            'followers_count' : person.followers.count()
+            'is_followed': is_followed,
+            'followings_count': person.followings.count(),
+            'followers_count': person.followers.count()
         }
-        return JsonResponse(context)   
-    
-    # 보안 상 자기 자신을 follow하면 리다이렉트 시키기
+        return JsonResponse(context)
+    # 보안상 자기자신을 팔로우할떄 redirect
     return redirect('accounts:profile', person.username)
+
