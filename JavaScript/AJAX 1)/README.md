@@ -164,6 +164,82 @@ promise는 then | catch 만 외우면 된다
 - 이때는 안녕하세요가 먼저 출력된다.
 - ![alt text](image-1.png)
 
+## Axios 실습 예시
+
+```html
+<!-- 고양이 이미지를 가져와서 보여주는 웹 페이지 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+  <button>냥냥펀치</button>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+     
+    const CAT_URL = 'https://api.thecatapi.com/v1/images/search'
+
+    // 1. querySelector
+    const btn = document.querySelector('button')
+
+    // 2. callback 함수
+    // 얘는 Promise 객체 할당 없이 바로 처리하는 방식임
+    const getCats = function () {
+       
+      axios({
+        method: 'get',
+        url: CAT_URL,
+
+
+      })
+
+        // 첫번째 then : 성공했을 때 API 응답에서 URL을 추출
+        .then((response) => {
+          // console.log(response)
+          // 아래 부분은 직접 개발자 모드 콘솔 켜서 직접 적을 줄 알아야 함
+          const imgUrl = response.data[0].url
+          return imgUrl
+        })
+
+        // 두번째 then : 이미지 URL 추출 후, 웹페이지의 img 태그에 추가
+
+        .then((imgData) => {
+          // img 태그 생성하기
+          const imgElem = document.createElement('img')
+          // 속성 조작 메서드
+          imgElem.setAttribute('src', imgData)
+          // body의 자식 태그로 추가
+          document.body.appendChild(imgElem)
+
+        })
+
+        .catch((error) => {
+
+
+        })
+
+
+      console.log('야옹야옹')
+    }
+
+    // 3. 이벤트 리스너
+    btn.addEventListener('click', getCats)
+
+
+    // promise의 주요 장점 2가지
+
+   </script>
+</body>
+</html>
+```
+
 
 ---
 # Async Await
