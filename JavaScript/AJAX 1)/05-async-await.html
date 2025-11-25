@@ -16,14 +16,26 @@
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script>
        // 고양이 API의 주소를 변수에 저장
-       const URL = 'https://api.thecatapi.com/v1/images/search'
+       const CAT_URL = 'https://api.thecatapi.com/v1/images/search'
        
       // 1. querySelector
       const btn = document.querySelector('button')
 
       // 2. 콜백함수
       const getCats = async function(){
-         
+         try{
+            // 서버로 요청보내고 응답받을 때 await를 붙임
+            const response = await axios.get(CAT_URL)
+            // 이미지 url 추출
+            const imgUrl = response.data[0].imgUrl
+            // 이미지 태그 생성, 속성 조작(src), body 태그에 img 태그를 자식 태그로 추가
+            const imgElem = document.createElement('img')
+            imgElem.setAttribute('src', imgUrl)
+            document.body.appendChild(imgElem)
+         }
+         catch (error) {
+            console.log(error)
+         }
       }
 
       // 3. 이벤트 리스너
