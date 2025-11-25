@@ -105,7 +105,10 @@ Axios는 AJAX를 쉽게 사용하게 해주는 '라이브러리'입니다
 
 
 ## Promise 활용 방법
-
+참고로 npm 라이브러리 설치 꼭 해야함
+```js
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+```
 ### 1. Promise 객체를 변수에 할당하기
 ``` js
     const promiseObj = axios({
