@@ -145,6 +145,10 @@ def comments_delete(request, article_pk, comment_pk):
         comment.delete()
     return redirect('articles:detail', article_pk)
 
+
+from django.http import JsonResponse
+
+
 @login_required
 def likes(request, article_pk):
     # 단일 게시글 조회
@@ -154,8 +158,13 @@ def likes(request, article_pk):
     if request.user in article.like_users.all():
         # 좋아요 취소(user를 제거)
         article.like_users.remove(request.user)
+        is_liked = False
     else:
         # 좋아요 추가(user를 추가)
         article.like_users.add(request.user)
-    
-    return redirect('articles:index')
+        is_liked = True
+
+    context = {
+        'is_liked': is_liked
+    }
+    return JsonResponse(context)
