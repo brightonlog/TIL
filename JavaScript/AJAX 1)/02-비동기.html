@@ -14,7 +14,22 @@
 
     // 출력결과
     // 작업 1 시작
+    console.log('작업 1 시작');
+
+    // 작업 완료 - 비동기 (콜백 함수)
+    const asyncTask = function(callBack){
+      setTimeout(() => {
+        callBack('작업 완료')
+      }, 5000)
+    };
+
+    asyncTask ((result) => {
+      console.log(result)
+    });
+
     // 작업 2 시작
+    console.log('작업2 시작')
+    
     // 작업 완료
     
   </script>
