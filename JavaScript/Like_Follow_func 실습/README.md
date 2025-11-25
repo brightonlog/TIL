@@ -28,5 +28,19 @@ def likes(request, article_pk):
 ```
 
 ## 2. 템플릿의 index 수정
-```py
+```html
 # articles > templates > articles > index.html
+        {% comment %} 자바 스크립트에서 쓰기 위해 id 값 추가해야함 {% endcomment %}
+        <form action="{% url "articles:likes" article.pk%}" method="POST" data-article-id="{{article.pk}}">
+            {% csrf_token %}
+            {% comment %} 좋아요 이미 눌렀으면 -> 좋아요 취소 {% endcomment %}
+            {% if request.user in article.like_users.all %}
+                <input type="submit" value="좋아요 취소" id="like-{{article.pk}}">
+            {% else %} {% comment %} 좋아요 안 눌렀으면 -> 좋아요 {% endcomment %}
+                <input type="submit" value="좋아요">
+            {% endif %}
+
+        </form>{% comment %} 좋아요 안 눌렀으면 -> 좋아요 {% endcomment %}
+
+```
+---
