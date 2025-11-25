@@ -1,0 +1,41 @@
+# 동기
+## 동기란?
+- 순차적으로 작업이 진행되는 것
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 출력결과
+    // 작업 1 시작
+    console.log('작업 1 시작')
+    // (반복 실행 동안 잠시 대기)
+    // 작업 완료
+    const syncTask = function () {
+      for (let i = 0; i < 10000000000; i ++){
+        // 대기
+      }
+      return '작업 완료'
+    }
+
+    console.result = syncTask() // 함수 호출
+    console.log(result)
+    // 작업 2 시작
+
+     console.log('작업 2 시작')
+
+    
+  </script>
+</body>
+
+</html>
+
+```
