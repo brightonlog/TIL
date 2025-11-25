@@ -166,6 +166,18 @@ promise는 then | catch 만 외우면 된다
 
 
 ---
+# Async Await
+asny-await은 try-catch로 잡는다.
+- await : 서버로 요청보내고 응답받을 때 await를 붙임
+
+## async await 쓰는 이유
+Promise 와 비교했을 때, async-await을 쓰는 이유가 뭘까?
+- 동기 코드처럼 코드가 읽히는데, 비동기로 동작하기 때문이다 (가독성이 좋음)
+
+
+----
+
+
 # etc
 ## 1. 콘솔 켜서 코드를 읽을 줄 알아야 함
 ![alt text](image-3.png)
