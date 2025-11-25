@@ -44,6 +44,10 @@
         .then((imgData) => {
           // img 태그 생성하기
           const imgElem = document.createElement('img')
+          // 속성 조작 메서드
+          imgElem.setAttribute('src', imgData)
+          // body의 자식 태그로 추가
+          document.body.appendChild(imgElem)
 
         })
 
