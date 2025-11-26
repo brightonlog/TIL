@@ -61,11 +61,61 @@
 
 ```
 ---
-# Vue 인스턴스
+# Vue 이벤트 리스너
+- 함수 안에 함수를 정의할 것
+- createApp 함수에 increment 함수를 정의할 것 ( 자주 쓰는 방법 )
 
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
+<body>
+  <div id="app">
+    <!-- button 클릭 이벤트가 발생하면 increment 함수를 실행하겠다 -->
+    <button @click="increment">
+      {{ count }}
+    </button>
+  </div>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script>
 
+    //1. 구조 분해 할당
+    const {createApp, ref} = Vue
+
+    // 2. createApp 함수
+    // 1번 파일 과의 차이점은 increment를  함수 안에 정의한다는 것
+    const app = createApp({
+      setup(){
+        const count = ref(0)
+        // ref(0)은 객체인데, { value: 0 } 이렇게 되어있다. 그래서 키를 .value 이렇게 나타내주는 것
+        const increment = function(){
+          count.value++
+        }
+
+        return{
+
+          count, // 변수를 return
+          increment // 함수를 return
+
+        }
+      }
+    })
+
+    // 3. mount
+    app.mount('#app')
+    
+   </script>
+</body>
+
+</html>
+
+```
 
 
 
