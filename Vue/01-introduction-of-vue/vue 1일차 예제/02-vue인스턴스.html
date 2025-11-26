@@ -8,7 +8,39 @@
 </head>
 
 <body>
- 
+
+  <div id="app">
+    <h1>{{ message }}</h1>
+
+    <!-- .split('') : string(문자열)을 배열(array)로 분리
+    .reverse() : 순서 뒤집기
+    .join('') : 배열을 다시 문자열로 결합 -->
+
+    
+    <h1>{{ message.split('').reverse().join('')}}</h1>
+  </div>
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+ <script>
+
+  //1. 구조분해할당
+  const {createApp, ref} = Vue
+
+
+  // 2. creatApp 함수
+  const app = createApp({
+    setup(){
+      const message = ref('Hello vue!')      
+      return {
+        message
+      }
+    }
+  })
+
+  // 3. mount
+  app.mount('#app')
+
+
+ </script>
 </body>
 
 </html>
