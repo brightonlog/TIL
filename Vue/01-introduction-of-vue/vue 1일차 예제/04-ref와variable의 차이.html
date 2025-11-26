@@ -11,6 +11,43 @@
 
 <body>
 
+  <div id="app">
+    <p> 반응형 변수 ref: {{ count }} </p>
+    <p> 일반 변수 : {{ count2 }} </p>
+    <button @click="increment"> 값 증가 </button>
+  </div>
+
+  <script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+
+    //1. 구조 분해 할당
+    const { createApp, ref } = Vue
+
+    //2. createApp 함수 
+    const app = createApp ({
+      setup() {
+        const count = ref(0) // { value : 0 } 이렇게 뜸
+        let count2 = 0
+
+        const increment = function() {
+          count.value++
+          count2++
+
+          console.log(count.value)
+          console.log(count2)
+        }
+        return {
+          count,
+          count2,
+          increment
+
+        }
+      }
+    })
+
+    //3. mount
+    app.mount("#app")
+  </script>
 </body>
 
 </html>
