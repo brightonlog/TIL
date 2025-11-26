@@ -11,7 +11,26 @@
  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <h1>{{ message }}</h1>
+ <script>
+  // 1. 구조분해할당
+  const {createApp, ref} = Vue
+  
+  // 2. createApp 함수 만들기
+  const app = createApp({
 
+    setup() {
+
+      return {
+
+
+      }
+    }
+  })
+
+  // 3. mount
+  app.mount('#app')
+
+ </script>
 
 
 v-on:click : 클릭 이벤트 감지
