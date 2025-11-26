@@ -116,6 +116,8 @@
 </html>
 
 ```
+---
+# Ref vs Variable
 
 
 
@@ -144,5 +146,17 @@ div#app>h1*2
     <h1></h1>
   </div>
 
+이렇게 나온다
+```
+
+
+```html
+  div#app>p*2+button
+이렇게 치면
+  <div id="app">
+    <p></p>
+    <p></p>
+    <button></button>
+  </div>
 이렇게 나온다
 ```
