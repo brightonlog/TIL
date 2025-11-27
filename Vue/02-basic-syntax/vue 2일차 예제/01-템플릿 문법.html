@@ -40,10 +40,22 @@
 
     </div>
 
-    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        
-        
+        // 1.
+        const {createApp, ref} = Vue
+
+        // 2. 
+        const app = createApp({
+            setup(){
+
+                return{
+
+                }
+            }
+        })
+        // 3. 
+        app.mount('#app')
     </script>
 </body>
 </html>
