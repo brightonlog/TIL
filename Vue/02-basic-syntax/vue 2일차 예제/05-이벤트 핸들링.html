@@ -1,26 +1,37 @@
 <body>
   <div id="app">
     <!-- 1. 인라인 핸들러 -->
-
-
+    <!-- 버튼 클릭할 때마다 count 씩 증가 -->
+    <button @click="count++"> 1 증가</button>
+    <p>Count: {{count}}</p>
 
     <!-- 2. 메소드 핸들러 -->
-
+    <!-- 버튼을 클릭하면(클릭 이벤트가 발생하면) my Func 함수가 실행 -->
+    <button @click="myFunc">Hello</button>
 
 
     <!-- 3. 인라인 핸들러에서 메소드 호출 -->
+     <!-- 버튼을 클릭했을 때 greeting 함수를 호출하고 인자로 hi 또는 bye를 주는 것 -->
+    <button @click="greeting('hi')">Say hello</button>
+    <button @click="greeting('bye')">Say bye</button>
 
 
 
     <!-- 4. 이벤트 객체($event) 전달 -->
+    <button @click="warning('경고', $event)">submit</button>
 
   
 
     <!-- 5. 이벤트 수식어(modifiers) -->
-
+    <!-- .prevent가 있을 때와 없을 때 차이만 보면 된다 -->
+    <a href="https://www.google.com" @click="onLink"></a>
+    <!-- a 태그는 a 태그를 버튼처럼 쓸 때
+     form 태그처럼... -->
 
 
     <!-- 6. 키 수식어 -->
+    <!-- .enter : Enter 키를 눌렀을 때 onSubmit 함수를 호출 -->
+    <input @keyup.enter = "onSubmit">
 
 
     
@@ -33,10 +44,33 @@
 
     const app = createApp({
       setup() {
+
+        const count = ref(0)
+        const name = ref('Bogeom')
+
+        const myFunc = function (event) {
+          console.log(event)
+          // currentTarget : 이벤트가 발생한 요소
+          console.log(event.currentTarget)
+          // 그냥 name으로 하면 안 나옴. js에서 접근하려면 .value로 가야함
+          console.log('Hello ${name.value}')
+        }
+
+        const greeting = function (message){
+          console.log(message)
+        }
  
 
 
         return {
+          count,
+          myFunc,
+          count,
+          name,
+          warning,
+          onLink,
+          onSubmit
+
 
 
           
