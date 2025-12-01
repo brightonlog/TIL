@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-if와 v-else를 사용한 조건부 렌더링 -->
+
+
+
+    <!-- 토글 버튼 -->
+
+
+
+    <!-- v-if, v-else-if, v-else를 사용한 다중 조건 렌더링 -->
+
+
+
+    <!-- template 태그를 사용한 그룹 조건부 렌더링 -->
+
+
+
+    <!-- v-show -->
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+
+        const isSeen = ref(true) 
+        const name = ref('Cathy')  
+        const isShow = ref(true)  
+
+        
+        return {
+          isSeen,
+          name,
+          isShow
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+</html>
