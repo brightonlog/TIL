@@ -9,7 +9,10 @@
  <div id="app">
 
    <!-- 배열 반복-->
-
+  <div v-if="name === 'Alice'">Alice 입니다</div>
+  <div v-else-if="name === 'Bella'">Bella 입니다</div>
+  <div v-else-if="name === 'Cathy'">Cathy 입니다</div>
+  <div v-else>아무도 아닙니다</div>
 
 
    <!-- 객체 반복 -->
