@@ -1,53 +1,28 @@
-<script setup>
-import HelloWorld from "./components/TodoListItem.vue";
-import TheWelcome from "./components/TodoList.vue";
-</script>
-
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <h1> 오늘의 할 일 하기</h1>
+  <h2> 완료된 할 일의 개수 : {{ store.doneTodoCount }}</h2>
+  
+  <!-- 할 일 목록 -->
+  <TodoList />
+  
+  <!-- 할 일 생성 -->
+  <TodoForm />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
+<script setup>
+  // 중앙저장소의 counter.js 가져오기 
+  import { useCounterStore } from './stores/counter';
+
+  import TodoForm from './components/TodoForm.vue';
+  import TodoList from './components/TodoList.vue';
+
+  // counter.js 가져와서 store 변수에 할당하기
+  const store = useCounterStore
+
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
