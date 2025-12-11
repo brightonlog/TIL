@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import ArticleView from '@/views/ArticleView.vue'
+/
 // import DetailView from '@/views/DetailView.vue'
 // import CreateView from '@/views/CreateView.vue'
 // import SignUpView from '@/views/SignUpView.vue'
@@ -34,6 +34,9 @@ const router = createRouter({
     //   component: LogInView
     // }
   ]
-})
+})/////
+/xport default router
 
-export default router
+
+
+
