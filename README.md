@@ -35,8 +35,9 @@
 - [Numpy&Pandas (feat. algebra)](AI/Numpy_Pandas_AI.md)
 - [Linear Regression](AI/Linear_regression.md)
 
-[SQL](SQL/)
+### [SQL](SQL/)
 
+### [Vue](Vue/)
 - 
 
 ### [JavaScript](JavaScript/)
