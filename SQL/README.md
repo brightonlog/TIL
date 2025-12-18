@@ -29,3 +29,7 @@ record = row = tuple
 
 - GRANT: 사용자에게 권한 부여
 - REVOKE: 사용자로부터 권한 회수
+
+## JOIN
+
+![alt text](image.png)
